@@ -47,6 +47,9 @@ public class Astigm {
 		return Math.toDegrees(Math.atan2(J45, J0))/2;
 	}
 	
+	public double axis() {
+		return angle(J0,J45);
+	}
 	public double[] show() {
 		double[] res=new double[3];
 		res[2]=angle(J0,J45);
