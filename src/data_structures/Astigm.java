@@ -31,6 +31,14 @@ public class Astigm {
 		return result;
 	}
 	
+	public Astigm minus() {
+		Astigm result =new Astigm(0,0,0);
+		result.M=-this.M;
+		result.J0=-this.J0;
+		result.J45=-this.J45;
+		return result;
+	}
+	
 	public double proj(Astigm other) {// internal product between two power vectors, normalized to other.
 		return (this.M*other.M+this.J0*other.J0+this.J45*other.J45)/(other.M*other.M+other.J0*other.J0+other.J45*other.J45);
 	}
