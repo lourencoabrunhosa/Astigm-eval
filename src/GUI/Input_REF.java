@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import data_structures.pos_info;
+import data_structures.pos_info_REF;
 import data_structures.pre_info;
 import data_structures.pre_info_REF;
 
@@ -30,17 +32,23 @@ public class Input_REF extends JPanel {
 	 * Create the panel.
 	 */
 	Border defaultBorder;
-	JTextField pre_k1;
-	JTextField pre_k2;
-	JTextField pre_a1;
-	JTextField pre_a2;
+	JLabel errorinfo1;
+	JLabel errorinfo2;
 	
-	JTextField pos_k1;
-	JTextField pos_k2;
-	JTextField pos_a1;
-	JTextField pos_a2;
+	double prek1=-1;
+	double prek2=-1;
+	double prea1=-1;
+	double prea2=-1;
+	
+	double posk1=-1;
+	double posk2=-1;
+	double posa1=-1;
+	double posa2=-1;
 	
 	pre_info preinfo;
+	pos_info posinfo;
+	
+	
 	public Input_REF(Base_frame parent) {
 		
 		Locale.setDefault(Locale.US);
@@ -48,6 +56,19 @@ public class Input_REF extends JPanel {
 		setPreferredSize(new Dimension(225,400));
 		setLayout(null);
 		
+		errorinfo1 = new JLabel("Please insert valid data");
+		errorinfo1.setForeground(Color.RED);
+		errorinfo1.setFont(new Font("Tahoma",Font.BOLD,8));
+		errorinfo1.setBounds(80, 105, 489, 20);
+		errorinfo1.setVisible(false);
+		add(errorinfo1);
+		
+		errorinfo2 = new JLabel("Please insert valid data");
+		errorinfo2.setForeground(Color.RED);
+		errorinfo2.setFont(new Font("Tahoma",Font.BOLD,8));
+		errorinfo2.setBounds(80, 265, 489, 20);
+		errorinfo2.setVisible(false);
+		add(errorinfo2);
 		
 		JLabel Jlabel_1 = new JLabel("Pre Surgery Data:");
 		Jlabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -75,17 +96,17 @@ public class Input_REF extends JPanel {
 		add(Jlabel_4);
 		add(Jlabel_5);
 		
-		pre_k1=new JTextField();
+		JTextField pre_k1=new JTextField();
 		defaultBorder=pre_k1.getBorder();
 		pre_k1.setBounds(45,50,45,20);
 		
-		pre_a1 = new JTextField();
+		JTextField pre_a1 = new JTextField();
 		pre_a1.setBounds(140,50,45,20);
 		
-		pre_k2 = new JTextField();
+		JTextField pre_k2 = new JTextField();
 		pre_k2.setBounds(45,80,45,20);
 		
-		pre_a2 = new JTextField();
+		JTextField pre_a2 = new JTextField();
 		pre_a2.setBounds(140,80,45,20);
 		
 		add(pre_k1);
@@ -123,16 +144,16 @@ public class Input_REF extends JPanel {
 		add(Jlabel_9);
 		add(Jlabel_10);
 		
-		pos_k1=new JTextField();
+		JTextField pos_k1=new JTextField();
 		pos_k1.setBounds(45,210,45,20);
 		
-		pos_a1 = new JTextField();
+		JTextField pos_a1 = new JTextField();
 		pos_a1.setBounds(140,210,45,20);
 		
-		pos_k2 = new JTextField();
+		JTextField pos_k2 = new JTextField();
 		pos_k2.setBounds(45,240,45,20);
 		
-		pos_a2 = new JTextField();
+		JTextField pos_a2 = new JTextField();
 		pos_a2.setBounds(140,240,45,20);
 		
 		add(pos_k1);
@@ -148,114 +169,159 @@ public class Input_REF extends JPanel {
 		TIA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				get_TIA();
-				System.out.println("pre_info calculated");
+			}
+		});
+		
+		outcomes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				get_SIA();
 			}
 		});
 		
 		pre_k1.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_K(pre_k1);
+				if(check_K(pre_k1)) prek1=Double.parseDouble(pre_k1.getText());
+				else prek1=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pre_k1.setBorder(defaultBorder);
+				errorinfo1.setVisible(false);
 			}
 		});
 		
 		pre_k2.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_K(pre_k2);
+				if(check_K(pre_k2)) prek2=Double.parseDouble(pre_k2.getText());
+				else prek2=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pre_k2.setBorder(defaultBorder);
+				errorinfo1.setVisible(false);
 			}
 		});
 		
 		pre_a1.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_A(pre_a1);
+				if(check_A(pre_a1)) prea1=Double.parseDouble(pre_a1.getText());
+				else prea1=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pre_a1.setBorder(defaultBorder);
+				errorinfo1.setVisible(false);
 			}
 		});
 		
 		pre_a2.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_A(pre_a2);
+				if(check_A(pre_a2)) prea2=Double.parseDouble(pre_a2.getText());
+				else prea2=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pre_a2.setBorder(defaultBorder);
+				errorinfo1.setVisible(false);
 			}
 		});
 		
 		pos_k1.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_K(pos_k1);
+				if(check_K(pos_k1)) posk1=Double.parseDouble(pos_k1.getText());
+				else posk1=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pos_k1.setBorder(defaultBorder);
+				errorinfo2.setVisible(false);
 			}
 		});
 		
 		pos_k2.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_K(pos_k2);
+				if(check_K(pos_k2)) posk2=Double.parseDouble(pos_k2.getText());
+				else posk2=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pos_k2.setBorder(defaultBorder);
+				errorinfo2.setVisible(false);
 			}
 		});
 		
 		pos_a1.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_A(pos_a1);
+				if(check_A(pos_a1)) posa1=Double.parseDouble(pos_a1.getText());
+				else posa1=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pos_a1.setBorder(defaultBorder);
+				errorinfo2.setVisible(false);
 			}
 		});
 		
 		pos_a2.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
-				check_A(pos_a2);
+				if(check_A(pos_a2)) posa2=Double.parseDouble(pos_a2.getText());
+				else posa2=-1;
 			}
 			public void focusGained(FocusEvent e) {
 				pos_a2.setBorder(defaultBorder);
+				errorinfo2.setVisible(false);
 			}
 		});
 	}
 	
 	private void get_TIA() {
-		preinfo=new pre_info_REF(Double.parseDouble(pre_k1.getText()),Double.parseDouble(pre_k2.getText()),Double.parseDouble(pre_a1.getText()),Double.parseDouble(pre_a2.getText()));
-	}
-	
-	private void check_K(JTextField tf) {
-		try {
-			if(tf.getText().equals("")) throw new Custum_Exception();
-			double prek1=Double.parseDouble(tf.getText());
-			if(prek1<0) throw new Exception();
-			tf.setBorder(defaultBorder);
+		if(prek1==-1||prek2==-1||prea1==-1||prea2==-1) {
+			System.out.println("aborted due to lack of arguments");
+			errorinfo1.setVisible(true);
 		}
-		catch(Custum_Exception ce) {
-			tf.setBorder(defaultBorder);
-		}
-		catch(Exception e){
-			tf.setBorder(BorderFactory.createLineBorder(Color.RED));
+		else {
+			preinfo=new pre_info_REF(prek1,prek2,prea1,prea2);
+			System.out.println("pre_info calculated");
 		}
 	}
 	
-	private void check_A(JTextField tf) {
+	private void get_SIA() {
+		if(posk1==-1||posk2==-1||posa1==-1||posa2==-1) {
+			System.out.println("aborted due to lack of arguments");
+			errorinfo2.setVisible(true);
+		}
+		else {
+			posinfo=new pos_info_REF(posk1,posk2,posa1,posa2,preinfo);
+			System.out.println("pos_info calculated");
+		}
+	}
+	
+	private boolean check_K(JTextField tf) {
 		try {
 			if(tf.getText().equals("")) throw new Custum_Exception();
-			double prek1=Double.parseDouble(tf.getText());
-			if(prek1<0||prek1>180) throw new Exception();
+			double k=Double.parseDouble(tf.getText());
+			if(k<0) throw new Exception();
 			tf.setBorder(defaultBorder);
+			return true;
 		}
 		catch(Custum_Exception ce) {
 			tf.setBorder(defaultBorder);
+			return false;
 		}
 		catch(Exception e){
 			tf.setBorder(BorderFactory.createLineBorder(Color.RED));
+			return false;
+		}
+	}
+	
+	private boolean check_A(JTextField tf) {
+		try {
+			if(tf.getText().equals("")) throw new Custum_Exception();
+			double a=Double.parseDouble(tf.getText());
+			if(a<0||a>180) throw new Exception();
+			tf.setBorder(defaultBorder);
+			return true;
+		}
+		catch(Custum_Exception ce) {
+			tf.setBorder(defaultBorder);
+			return false;
+		}
+		catch(Exception e){
+			tf.setBorder(BorderFactory.createLineBorder(Color.RED));
+			return false;
 		}
 	}
 
