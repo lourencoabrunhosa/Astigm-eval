@@ -14,7 +14,7 @@ public class Base_frame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JPanel contentPane;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -45,8 +45,7 @@ public class Base_frame extends JFrame {
 		setContentPane(contentPane);
 		setResizable(false);
 		
-		contentPane.add(new Input_REF(this),BorderLayout.LINE_START);
-		contentPane.add(new Output_REF(this),BorderLayout.LINE_END);
+		contentPane.add(new REF_case(this));
 	}
 
 }
