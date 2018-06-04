@@ -18,6 +18,9 @@ public class Output_REF extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
+	Base_frame parent;
+	
 	pre_info preinfo;
 	pos_info posinfo;
 	public Output_REF(Base_frame parent) {
@@ -27,10 +30,7 @@ public class Output_REF extends JPanel {
 		setPreferredSize(new Dimension(370,400));
 		setLayout(null);
 		
-		
-		
-		
-
+		this.parent=parent;
 	}
 
 }
