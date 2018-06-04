@@ -31,6 +31,8 @@ public class Input_REF extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	Base_frame parent;
+	
 	Border defaultBorder;
 	JLabel errorinfo1;
 	JLabel errorinfo2;
@@ -55,6 +57,8 @@ public class Input_REF extends JPanel {
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(225,400));
 		setLayout(null);
+		
+		this.parent=parent;
 		
 		errorinfo1 = new JLabel("Please insert valid data");
 		errorinfo1.setForeground(Color.RED);
