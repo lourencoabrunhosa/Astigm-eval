@@ -25,8 +25,8 @@ public class REF_case extends JPanel {
 		this.parent=parent;
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(new BorderLayout(0, 0));
-		input=new Input_REF(parent);
-		output=new Output_REF(parent);
+		input=new Input_REF(this);
+		output=new Output_REF(this);
 		add(input,BorderLayout.LINE_START);
 		add(output,BorderLayout.LINE_END);
 	}
