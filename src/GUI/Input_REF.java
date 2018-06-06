@@ -31,7 +31,7 @@ public class Input_REF extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	Base_frame parent;
+	REF_case parent;
 	
 	Border defaultBorder;
 	JLabel errorinfo1;
@@ -51,7 +51,7 @@ public class Input_REF extends JPanel {
 	pos_info posinfo;
 	
 	
-	public Input_REF(Base_frame parent) {
+	public Input_REF(REF_case parent) {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
@@ -278,6 +278,7 @@ public class Input_REF extends JPanel {
 		}
 		else {
 			preinfo=new pre_info_REF(prek1,prek2,prea1,prea2);
+			parent.output.Output_TIA(preinfo);
 			System.out.println("pre_info calculated");
 		}
 	}
@@ -289,6 +290,7 @@ public class Input_REF extends JPanel {
 		}
 		else {
 			posinfo=new pos_info_REF(posk1,posk2,posa1,posa2,preinfo);
+			parent.output.Output_analisis(preinfo, posinfo);
 			System.out.println("pos_info calculated");
 		}
 	}
