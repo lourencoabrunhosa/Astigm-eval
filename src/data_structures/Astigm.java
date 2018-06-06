@@ -6,9 +6,9 @@ public class Astigm {
 	protected double J45;
 	
 	public Astigm(double S,double C,double a) {
-		M=(S+C)/2;
-		J0=(C/2)*Math.cos(2*a);
-		J45=(C/2)*Math.sin(2*a);
+		M=S+(C/2);
+		J0=(-C/2)*Math.cos(2*Math.toRadians(a));
+		J45=(-C/2)*Math.sin(2*Math.toRadians(a));
 	}
 	
 	public double getM() {
@@ -44,7 +44,8 @@ public class Astigm {
 	}
 	
 	private static double angle(double J0, double J45) {
-		return Math.toDegrees(Math.atan2(J45, J0))/2;
+		double x= Math.toDegrees(Math.atan2(J45, J0))/2;
+		return x+90;
 	}
 	
 	public double axis() {
@@ -53,8 +54,8 @@ public class Astigm {
 	public double[] show() {
 		double[] res=new double[3];
 		res[2]=angle(J0,J45);
-		res[1]=Math.sqrt(Math.pow(J0,2)+Math.pow(J45, 2));
-		res[0]=2*M-res[1];
+		res[1]=2*(Math.sqrt(Math.pow(J0,2)+Math.pow(J45, 2)));
+		res[0]=M-(res[1]/2);
 		return res;
 	}
 }
