@@ -19,11 +19,11 @@ public class Output_REF extends JPanel {
 	 * Create the panel.
 	 */
 	
-	Base_frame parent;
+	REF_case parent;
 	
 	pre_info preinfo;
 	pos_info posinfo;
-	public Output_REF(Base_frame parent) {
+	public Output_REF(REF_case parent) {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
@@ -31,6 +31,15 @@ public class Output_REF extends JPanel {
 		setLayout(null);
 		
 		this.parent=parent;
+	}
+	
+	public void Output_TIA(pre_info preinfo) {
+		this.preinfo=preinfo;
+	}
+	
+	public void Output_analisis(pre_info preinfo, pos_info posinfo) {
+		this.preinfo=preinfo;
+		this.posinfo=posinfo;
 	}
 
 }
