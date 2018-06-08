@@ -11,8 +11,8 @@ public class pos_info_IOL extends pos_info {
 	
 	public pos_info_IOL(double k1, double k2, double a1, double a2,double S,double C, double A, double IOL_S, double IOL_C, double IOL_A,pre_info preinfo) {
 		super();
-		if(a1>=a2) pos_cornea=new Astigm((k1+k2)/2,k1,a1);
-		else pos_cornea=new Astigm((k1+k2)/2,k2,a2);
+		if(k1>=k2) pos_cornea=new Astigm((k1+k2)/2,k1-k2,a1);
+		else pos_cornea=new Astigm((k1+k2)/2,k2-k1,a2);
 		SIA_cornea=pos_cornea.add(((pre_info_IOL)preinfo).pre_cornea.minus());
 		diff_cornea=((pre_info_IOL)preinfo).TIA_cornea.add(SIA_cornea.minus());
 		CI_cornea=SIA_cornea.proj(((pre_info_IOL)preinfo).TIA_cornea);

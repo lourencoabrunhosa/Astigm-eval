@@ -5,4 +5,20 @@ public class pos_info {
 	Astigm SIA;
 	Astigm diff;
 	double CI;
+	
+	public Astigm getPos() {
+		return pos;
+	}
+	
+	public Astigm getSIA() {
+		return SIA;
+	}
+	
+	public Astigm getDiff() {
+		return diff;
+	}
+	
+	public double getCI() {
+		return CI;
+	}
 }
