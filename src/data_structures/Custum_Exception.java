@@ -1,4 +1,4 @@
-package GUI;
+package data_structures;
 
 public class Custum_Exception extends Exception {
 
@@ -7,5 +7,5 @@ public class Custum_Exception extends Exception {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	Custum_Exception(){};
+	public Custum_Exception(){};
 }

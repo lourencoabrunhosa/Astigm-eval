@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import data_structures.Custum_Exception;
 import data_structures.pos_info;
 import data_structures.pos_info_REF;
 import data_structures.pre_info;
