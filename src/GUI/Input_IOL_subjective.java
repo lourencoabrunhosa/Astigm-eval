@@ -23,7 +23,7 @@ public class Input_IOL_subjective extends JPanel {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(225,400));
+		setPreferredSize(new Dimension(244,600));
 		setLayout(null);
 		
 		this.parent=parent;

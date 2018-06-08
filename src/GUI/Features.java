@@ -21,7 +21,7 @@ public class Features extends JTabbedPane {
 	public Features(Base_frame parent) {
 		this.parent=parent;
 		
-		setPreferredSize(new Dimension(600,400));
+		setPreferredSize(new Dimension(700,600));
 		
 		REF_patient=new REF_case(this);
 		IOL_patient=new IOL_case(this);

@@ -56,7 +56,7 @@ public class Input_REF extends JPanel {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(225,400));
+		setPreferredSize(new Dimension(300,600));
 		setLayout(null);
 		
 		this.parent=parent;
