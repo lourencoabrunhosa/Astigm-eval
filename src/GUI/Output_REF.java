@@ -46,7 +46,7 @@ public class Output_REF extends JPanel {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(370,400));
+		setPreferredSize(new Dimension(400,600));
 		setLayout(null);
 		
 		this.parent=parent;

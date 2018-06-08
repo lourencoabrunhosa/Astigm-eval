@@ -23,7 +23,7 @@ public class Output_IOL_subjective extends JPanel {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(370,400));
+		setPreferredSize(new Dimension(390,600));
 		setLayout(null);
 		
 		this.parent=parent;
