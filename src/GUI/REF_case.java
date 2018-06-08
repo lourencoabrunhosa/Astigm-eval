@@ -16,12 +16,12 @@ public class REF_case extends JPanel {
 	 * Create the panel.
 	 */
 	
-	Base_frame parent;
+	Features parent;
 	
 	Input_REF input;
 	Output_REF output;
 	
-	public REF_case(Base_frame parent) {
+	public REF_case(Features parent) {
 		this.parent=parent;
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(new BorderLayout(0, 0));

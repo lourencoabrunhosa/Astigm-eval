@@ -45,7 +45,7 @@ public class Base_frame extends JFrame {
 		setContentPane(contentPane);
 		setResizable(false);
 		
-		contentPane.add(new REF_case(this));
+		contentPane.add(new Features(this));
 	}
 
 }
