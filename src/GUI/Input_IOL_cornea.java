@@ -161,11 +161,11 @@ public class Input_IOL_cornea extends JPanel {
 		add(pos_a2);
 		
 		JButton TIA = new JButton("Get TIA");
-		TIA.setBounds(100,250,85,25);
+		TIA.setBounds(100,290,85,25);
 		add(TIA);
 		
 		JButton outcomes = new JButton("Analyse Surgery");
-		outcomes.setBounds(55,290,130,25);
+		outcomes.setBounds(55,320,130,25);
 		add(outcomes);
 		
 
