@@ -34,6 +34,8 @@ public class Input_IOL_cornea extends JPanel {
 	Input_IOL parent;
 	
 	Border defaultBorder;
+	Border warningBorder;
+	
 	JLabel errorinfo1;
 	JLabel errorinfo2;
 	
@@ -59,6 +61,12 @@ public class Input_IOL_cornea extends JPanel {
 		
 		this.parent=parent;
 		
+		defaultBorder=(new JTextField()).getBorder();
+		warningBorder=BorderFactory.createLineBorder(Color.RED);
+		
+		Font section_head=new Font("Tahoma",Font.PLAIN,12);
+		Font label=new Font("Tahoma",Font.BOLD,12);
+		
 		errorinfo1 = new JLabel("Please insert valid data");
 		errorinfo1.setForeground(Color.RED);
 		errorinfo1.setFont(new Font("Tahoma",Font.BOLD,8));
@@ -74,23 +82,23 @@ public class Input_IOL_cornea extends JPanel {
 		add(errorinfo2);
 		
 		JLabel Jlabel_1 = new JLabel("Pre Surgery Data:");
-		Jlabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		Jlabel_1.setFont(section_head);
 		Jlabel_1.setBounds(10, 10, 489, 20);
 		
 		JLabel Jlabel_2 = new JLabel("K1");
-		Jlabel_2.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_2.setFont(label);
 		Jlabel_2.setBounds(20,50,489,20);
 		
 		JLabel Jlabel_3 = new JLabel("K2");
-		Jlabel_3.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_3.setFont(label);
 		Jlabel_3.setBounds(20,80,489,20);
 		
 		JLabel Jlabel_4 = new JLabel("axis 1");
-		Jlabel_4.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_4.setFont(label);
 		Jlabel_4.setBounds(100,50,489,20);
 		
 		JLabel Jlabel_5 = new JLabel("axis 2");
-		Jlabel_5.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_5.setFont(label);
 		Jlabel_5.setBounds(100,80,489,20);
 		
 		add(Jlabel_1);
@@ -100,7 +108,6 @@ public class Input_IOL_cornea extends JPanel {
 		add(Jlabel_5);
 		
 		JTextField pre_k1=new JTextField();
-		defaultBorder=pre_k1.getBorder();
 		pre_k1.setBounds(45,50,45,20);
 		
 		JTextField pre_a1 = new JTextField();
@@ -118,23 +125,23 @@ public class Input_IOL_cornea extends JPanel {
 		add(pre_a2);
 		
 		JLabel Jlabel_6 = new JLabel("Post Surgery Data:");
-		Jlabel_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		Jlabel_6.setFont(section_head);
 		Jlabel_6.setBounds(10, 130, 489, 20);
 		
 		JLabel Jlabel_7 = new JLabel("K1");
-		Jlabel_7.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_7.setFont(label);
 		Jlabel_7.setBounds(20,170,489,20);
 		
 		JLabel Jlabel_8 = new JLabel("K2");
-		Jlabel_8.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_8.setFont(label);
 		Jlabel_8.setBounds(20,200,489,20);
 		
 		JLabel Jlabel_9 = new JLabel("axis 1");
-		Jlabel_9.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_9.setFont(label);
 		Jlabel_9.setBounds(100,170,489,20);
 		
 		JLabel Jlabel_10 = new JLabel("axis 2");
-		Jlabel_10.setFont(new Font("Tahoma", Font.BOLD,12));
+		Jlabel_10.setFont(label);
 		Jlabel_10.setBounds(100,200,489,20);
 		
 		add(Jlabel_6);
@@ -291,7 +298,7 @@ public class Input_IOL_cornea extends JPanel {
 			return false;
 		}
 		catch(Exception e){
-			tf.setBorder(BorderFactory.createLineBorder(Color.RED));
+			tf.setBorder(warningBorder);
 			return false;
 		}
 	}
@@ -309,7 +316,7 @@ public class Input_IOL_cornea extends JPanel {
 			return false;
 		}
 		catch(Exception e){
-			tf.setBorder(BorderFactory.createLineBorder(Color.RED));
+			tf.setBorder(warningBorder);
 			return false;
 		}
 	}

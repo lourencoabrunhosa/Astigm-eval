@@ -3,6 +3,8 @@ package GUI;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.Locale;
@@ -15,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import data_structures.Custum_Exception;
+import data_structures.pos_info;
+import data_structures.pre_info;
 
 public class Input_IOL_subjective extends JPanel {
 
@@ -31,6 +35,7 @@ public class Input_IOL_subjective extends JPanel {
 	
 	Border defaultBorder;
 	Border warningBorder;
+	
 	JLabel errorinfo1;
 	JLabel errorinfo2;
 	
@@ -45,6 +50,9 @@ public class Input_IOL_subjective extends JPanel {
 	double iolS;
 	double iolC;
 	double iolA;
+	
+	pre_info preinfo;
+	pos_info posinfo;
 	
 	public Input_IOL_subjective(Input_IOL parent) {
 		
@@ -185,6 +193,18 @@ public class Input_IOL_subjective extends JPanel {
 		outcomes.setBounds(55,320,130,25);
 		add(outcomes);
 		
+		TIA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				get_TIA();
+			}
+		});
+		
+		outcomes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				get_SIA();
+			}
+		});
+		
 		in_S.addFocusListener(new FocusListener() {
 			public void focusLost(FocusEvent e) {
 				if(check_SC(in_S)) inS=Double.parseDouble(in_S.getText());
@@ -286,6 +306,13 @@ public class Input_IOL_subjective extends JPanel {
 		
 		
 
+	}
+	private void get_TIA() {
+		
+	}
+	
+	private void get_SIA() {
+		
 	}
 	
 	private boolean check_SC(JTextField tf) {
