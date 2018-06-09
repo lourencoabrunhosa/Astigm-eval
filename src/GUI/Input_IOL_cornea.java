@@ -118,28 +118,28 @@ public class Input_IOL_cornea extends JPanel {
 		add(pre_a2);
 		
 		JButton TIA = new JButton("Get TIA");
-		TIA.setBounds(100,130,85,25);
+		TIA.setBounds(10,250,85,25);
 		add(TIA);
 		
 		JLabel Jlabel_6 = new JLabel("Post Surgery Data:");
 		Jlabel_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		Jlabel_6.setBounds(10, 170, 489, 20);
+		Jlabel_6.setBounds(10, 130, 489, 20);
 		
 		JLabel Jlabel_7 = new JLabel("K1");
 		Jlabel_7.setFont(new Font("Tahoma", Font.BOLD,12));
-		Jlabel_7.setBounds(20,210,489,20);
+		Jlabel_7.setBounds(20,170,489,20);
 		
 		JLabel Jlabel_8 = new JLabel("K2");
 		Jlabel_8.setFont(new Font("Tahoma", Font.BOLD,12));
-		Jlabel_8.setBounds(20,240,489,20);
+		Jlabel_8.setBounds(20,200,489,20);
 		
 		JLabel Jlabel_9 = new JLabel("axis 1");
 		Jlabel_9.setFont(new Font("Tahoma", Font.BOLD,12));
-		Jlabel_9.setBounds(100,210,489,20);
+		Jlabel_9.setBounds(100,170,489,20);
 		
 		JLabel Jlabel_10 = new JLabel("axis 2");
 		Jlabel_10.setFont(new Font("Tahoma", Font.BOLD,12));
-		Jlabel_10.setBounds(100,240,489,20);
+		Jlabel_10.setBounds(100,200,489,20);
 		
 		add(Jlabel_6);
 		add(Jlabel_7);
@@ -148,16 +148,16 @@ public class Input_IOL_cornea extends JPanel {
 		add(Jlabel_10);
 		
 		JTextField pos_k1=new JTextField();
-		pos_k1.setBounds(45,210,45,20);
+		pos_k1.setBounds(45,170,45,20);
 		
 		JTextField pos_a1 = new JTextField();
-		pos_a1.setBounds(140,210,45,20);
+		pos_a1.setBounds(140,170,45,20);
 		
 		JTextField pos_k2 = new JTextField();
-		pos_k2.setBounds(45,240,45,20);
+		pos_k2.setBounds(45,200,45,20);
 		
 		JTextField pos_a2 = new JTextField();
-		pos_a2.setBounds(140,240,45,20);
+		pos_a2.setBounds(140,200,45,20);
 		
 		add(pos_k1);
 		add(pos_k2);
