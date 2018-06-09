@@ -13,4 +13,12 @@ public class pre_info_IOL extends pre_info {
 		TIA=pre.minus();
 		surgery="IOL";
 	}
+	
+	public Astigm getPreCornea() {
+		return pre_cornea;
+	}
+	
+	public Astigm getTIACornea() {
+		return TIA_cornea;
+	}
 }

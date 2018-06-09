@@ -23,4 +23,28 @@ public class pos_info_IOL extends pos_info {
 		IOL=new Astigm(IOL_S,IOL_C,IOL_A);
 		IOL_axis=pos.add(pos_cornea.minus()).axis();
 	}
+
+	public Astigm getPosCornea() {
+		return pos_cornea;
+	}
+
+	public Astigm getSIACornea() {
+		return SIA_cornea;
+	}
+
+	public Astigm getDiffCornea() {
+		return diff_cornea;
+	}
+
+	public Astigm getIOL() {
+		return IOL;
+	}
+
+	public double getCICornea() {
+		return CI_cornea;
+	}
+
+	public double getIOLAxis() {
+		return IOL_axis;
+	}
 }
