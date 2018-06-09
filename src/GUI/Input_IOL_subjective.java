@@ -325,6 +325,8 @@ public class Input_IOL_subjective extends JPanel {
 			preinfo=new pre_info_IOL(parent.cornea.prek1,parent.cornea.prek2,parent.cornea.prea1,parent.cornea.prea2,
 					inS,inC,inA);
 			parent.cornea.preinfo=preinfo;
+			parent.parent.output.cornea.Output_TIA(preinfo);
+			parent.parent.output.subjective.Output_TIA(preinfo);
 			System.out.println("pre_info_iol calculated");
 		}
 		else {
@@ -344,6 +346,8 @@ public class Input_IOL_subjective extends JPanel {
 					iolS,iolC,iolA,
 					preinfo);
 			parent.cornea.posinfo=posinfo;
+			parent.parent.output.cornea.Output_analisis(preinfo, posinfo);
+			parent.parent.output.subjective.Output_analisis(preinfo, posinfo);
 			System.out.println("pos_info_iol calculated");
 		}
 		else {
