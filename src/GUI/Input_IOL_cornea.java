@@ -117,10 +117,6 @@ public class Input_IOL_cornea extends JPanel {
 		add(pre_a1);
 		add(pre_a2);
 		
-		JButton TIA = new JButton("Get TIA");
-		TIA.setBounds(10,250,85,25);
-		add(TIA);
-		
 		JLabel Jlabel_6 = new JLabel("Post Surgery Data:");
 		Jlabel_6.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		Jlabel_6.setBounds(10, 130, 489, 20);
@@ -163,6 +159,10 @@ public class Input_IOL_cornea extends JPanel {
 		add(pos_k2);
 		add(pos_a1);
 		add(pos_a2);
+		
+		JButton TIA = new JButton("Get TIA");
+		TIA.setBounds(100,250,85,25);
+		add(TIA);
 		
 		JButton outcomes = new JButton("Analyse Surgery");
 		outcomes.setBounds(55,290,130,25);

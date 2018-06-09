@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Locale;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Input_IOL_subjective extends JPanel {
@@ -27,6 +28,15 @@ public class Input_IOL_subjective extends JPanel {
 		setLayout(null);
 		
 		this.parent=parent;
+		
+		
+		JButton TIA = new JButton("Get TIA");
+		TIA.setBounds(100,250,85,25);
+		add(TIA);
+		
+		JButton outcomes = new JButton("Analyse Surgery");
+		outcomes.setBounds(55,290,130,25);
+		add(outcomes);
 
 	}
 
