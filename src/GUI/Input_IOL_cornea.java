@@ -18,7 +18,9 @@ import javax.swing.border.Border;
 
 import data_structures.Custum_Exception;
 import data_structures.pos_info;
+import data_structures.pos_info_IOL;
 import data_structures.pre_info;
+import data_structures.pre_info_IOL;
 
 public class Input_IOL_cornea extends JPanel {
 
@@ -277,12 +279,46 @@ public class Input_IOL_cornea extends JPanel {
 		});
 	}
 	
+	public boolean readyT() {
+		return (prek1!=-1 && prek2!=-1 && prea1!=-1 && prea2!=-1);
+	}
+	
+	public boolean readyS() {
+		return (prek1!=-1 && prek2!=-1 && prea1!=-1 && prea2!=-1 &&
+				posk1!=-1 && posk2!=-1 && posa1!=-1 && posa2!=-1);
+	}
+	
 	private void get_TIA() {
-		
+		if(readyT() && parent.subjective.readyT()) {
+			preinfo=new pre_info_IOL(prek1,prek2,prea1,prea2,
+					parent.subjective.inS,parent.subjective.inC,parent.subjective.inA);
+			parent.subjective.preinfo=preinfo;
+			System.out.println("pre_info_iol calculated");
+		}
+		else {
+			System.out.println("aborted due to lack of arguments");
+			errorinfo1.setVisible(true);
+			parent.subjective.errorinfo1.setVisible(true);
+		}
 	}
 	
 	private void get_SIA() {
-		
+		if(readyS() && parent.subjective.readyS()) {
+			preinfo=new pre_info_IOL(prek1,prek2,prea1,prea2,
+					parent.subjective.inS,parent.subjective.inC,parent.subjective.inA);
+			parent.subjective.preinfo=preinfo;
+			posinfo=new pos_info_IOL(posk1,posk2,posa1,posa2,
+					parent.subjective.outS,parent.subjective.outC,parent.subjective.outA,
+					parent.subjective.iolS,parent.subjective.iolC,parent.subjective.iolA,
+					preinfo);
+			parent.subjective.posinfo=posinfo;
+			System.out.println("pos_info_iol calculated");
+		}
+		else {
+			System.out.println("aborted due to lack of arguments");
+			errorinfo2.setVisible(true);
+			parent.subjective.errorinfo2.setVisible(true);
+		}
 	}
 	
 	private boolean check_K(JTextField tf) {

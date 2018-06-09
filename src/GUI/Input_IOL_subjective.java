@@ -18,7 +18,9 @@ import javax.swing.border.Border;
 
 import data_structures.Custum_Exception;
 import data_structures.pos_info;
+import data_structures.pos_info_IOL;
 import data_structures.pre_info;
+import data_structures.pre_info_IOL;
 
 public class Input_IOL_subjective extends JPanel {
 
@@ -39,17 +41,17 @@ public class Input_IOL_subjective extends JPanel {
 	JLabel errorinfo1;
 	JLabel errorinfo2;
 	
-	double inS;
-	double inC;
-	double inA;
+	double inS=-100;
+	double inC=-100;
+	double inA=-1;
 	
-	double outS;
-	double outC;
-	double outA;
+	double outS=-100;
+	double outC=-100;
+	double outA=-1;
 	
-	double iolS;
-	double iolC;
-	double iolA;
+	double iolS=-100;
+	double iolC=-100;
+	double iolA=-1;
 	
 	pre_info preinfo;
 	pos_info posinfo;
@@ -307,12 +309,48 @@ public class Input_IOL_subjective extends JPanel {
 		
 
 	}
+	
+	public boolean readyT() {
+		return (inS!=-100 &&  inC!=-100 &&  inA!=-1);
+	}
+	
+	public boolean readyS() {
+		return ( inS!=-100 &&  inC!=-100 &&  inA!=-1 &&
+				outS!=-100 && outC!=-100 && outA!=-1 &&
+				iolS!=-100 && iolC!=-100 && iolA!=-1);
+	}
+	
 	private void get_TIA() {
-		
+		if(readyT() && parent.cornea.readyT()) {
+			preinfo=new pre_info_IOL(parent.cornea.prek1,parent.cornea.prek2,parent.cornea.prea1,parent.cornea.prea2,
+					inS,inC,inA);
+			parent.cornea.preinfo=preinfo;
+			System.out.println("pre_info_iol calculated");
+		}
+		else {
+			System.out.println("aborted due to lack of arguments");
+			errorinfo1.setVisible(true);
+			parent.cornea.errorinfo1.setVisible(true);
+		}
 	}
 	
 	private void get_SIA() {
-		
+		if(readyS() && parent.subjective.readyS()) {
+			preinfo=new pre_info_IOL(parent.cornea.prek1,parent.cornea.prek2,parent.cornea.prea1,parent.cornea.prea2,
+					inS,inC,inA);
+			parent.cornea.preinfo=preinfo;
+			posinfo=new pos_info_IOL(parent.cornea.posk1,parent.cornea.posk2,parent.cornea.posa1,parent.cornea.posa2,
+					outS,outC,outA,
+					iolS,iolC,iolA,
+					preinfo);
+			parent.cornea.posinfo=posinfo;
+			System.out.println("pos_info_iol calculated");
+		}
+		else {
+			System.out.println("aborted due to lack of arguments");
+			errorinfo2.setVisible(true);
+			parent.subjective.errorinfo2.setVisible(true);
+		}
 	}
 	
 	private boolean check_SC(JTextField tf) {
