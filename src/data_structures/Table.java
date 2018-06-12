@@ -22,6 +22,28 @@ class lista{
 		first=aux;
 	}
 	
+	patient search(int id) {
+		Node runner=first;
+		while(runner!=null) {
+			if(runner.val.id==id) return runner.val;
+			runner=runner.next;
+		}
+		return null;
+	}
+	
+	double[] stats(int var,double minBound, double maxBound ) {
+		double[] results=new double[7];
+		Node runner=first;
+		while(runner!=null) {
+			
+		}
+		
+		
+		
+		
+		
+		return results;
+	}
 }
 
 public class Table {
