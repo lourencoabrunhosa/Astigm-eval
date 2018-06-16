@@ -128,5 +128,6 @@ public class patient {
 			results[3]=((pos_info_IOL) posinfo).getIOLAxis()*((pos_info_IOL) posinfo).getIOLAxis();
 			results[6]=1;
 		}
+		return results;
 	}
 }

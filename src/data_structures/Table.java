@@ -35,13 +35,11 @@ class lista{
 		double[] results=new double[7];
 		Node runner=first;
 		while(runner!=null) {
-			
+			double[] parcel=runner.val.getstats(var, minBound, maxBound);
+			for(int i=0;i<7;i++) {
+				results[i]+=parcel[i];
+			}
 		}
-		
-		
-		
-		
-		
 		return results;
 	}
 }
