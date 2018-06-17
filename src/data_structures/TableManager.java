@@ -9,34 +9,40 @@ import java.io.ObjectOutputStream;
 
 public class TableManager {
 	
-	public static Table connect(String directory) throws IOException {
-		FileInputStream fis = null;
+	Table table;
+	String directory;
+	
+	public TableManager(String directory) throws Custum_Exception{
+		this.directory=directory;
 		try {
-			fis = new FileInputStream(directory);
+			FileInputStream fis = new FileInputStream(directory);
 			ObjectInputStream ois=new ObjectInputStream(fis);
-			Table table = (Table) ois.readObject();
+			table = (Table) ois.readObject();
 			ois.close();
 			fis.close();
-			return table;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			throw new Custum_Exception();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			throw new Custum_Exception();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			fis.close();
-			return null;
+			throw new Custum_Exception();
 		}
 	}
 	
-	public static void create(String directory, Table table) {
-		FileOutputStream fos = null;
+	public TableManager(String directory, Table table) {
+		this.directory=directory;
+		this.table=table;
+	}
+	
+	public void close() {
+		FileOutputStream fos;
 		try {
-			fos=new FileOutputStream(directory);
+			fos = new FileOutputStream(directory);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(table);
 			oos.close();
@@ -50,4 +56,5 @@ public class TableManager {
 		}
 		
 	}
+	
 }
