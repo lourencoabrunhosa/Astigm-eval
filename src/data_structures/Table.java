@@ -45,5 +45,33 @@ class lista{
 }
 
 public class Table {
+	lista[] disp;
+	int m;
 	
+	Table(int m){
+		this.m=m;
+		disp=new lista[m];
+		for(int i=0;i<m;i++) disp[i]=new lista();
+	}
+	
+	private int h(int x) {
+		return x%m;
+	}
+	
+	public void add(patient p) {
+		disp[h(p.id)].ins(p);
+	}
+	
+	public patient search(int id) {
+		return disp[h(id)].search(id);
+	}
+	
+	public double[] stats(int var, double minBound,double maxBound) {
+		double[] results=new double[7];
+		for(int i=0; i<m;i++) {
+			double [] temp=disp[i].stats(var, minBound, maxBound);
+			for(int j=0;j<7;j++) results[i]+=temp[i];
+		}
+		return results;
+	}
 }
