@@ -101,6 +101,18 @@ public class Patient_panel extends JPanel {
 		year.setFont(label);
 		year.setBounds(150,80,50,20);
 		
+		add(JLabel_1);
+		add(JLabel_2);
+		add(JLabel_3);
+		add(JLabel_4);
+		add(JLabel_5);
+		add(JLabel_6);
+		add(JLabel_7);
+		add(name);
+		add(surname);
+		add(day);
+		add(month);
+		add(year);
 		
 	}
 
