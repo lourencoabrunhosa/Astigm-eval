@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import GUI.Base_frame;
+import data_structures.TableManager;
 import data_structures.doctor;
 
 public class sign_up extends JPanel {
@@ -41,18 +42,18 @@ public class sign_up extends JPanel {
 		
 		JLabel Jlabel_1 = new JLabel("Name");
 		Jlabel_1.setFont(FONT1);
-		Jlabel_1.setBounds(15,10,150,20);
+		Jlabel_1.setBounds(155,30,150,20);
 		
 		
 		JTextField Name=new JTextField();
-		Name.setBounds(10,35,150,20);
+		Name.setBounds(150,55,150,20);
 		
 		JLabel Jlabel_2=new JLabel("Surname");
 		Jlabel_2.setFont(FONT1);
-		Jlabel_2.setBounds(15,70,150,20);
+		Jlabel_2.setBounds(155,90,150,20);
 		
 		JTextField Surname = new JTextField();
-		Surname.setBounds(10,95,150,20);
+		Surname.setBounds(150,115,150,20);
 		
 		add(Jlabel_1);
 		add(Jlabel_2);
@@ -63,6 +64,10 @@ public class sign_up extends JPanel {
 		signup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				doctor doc=new doctor(Name.getText(),Surname.getText());
+				Doc_Table dt=new Doc_Table();
+				dt.add(doc);
+				TableManager tm=new TableManager("doctors",dt);
+				tm.close();
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
@@ -75,7 +80,7 @@ public class sign_up extends JPanel {
 				});
 			}
 		});
-		signup.setBounds(200,120,60,30);
+		signup.setBounds(175,150,100,30);
 		
 		add(signup);
 	}
