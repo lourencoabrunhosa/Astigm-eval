@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 
 public class TableManager {
 	
-	Table table;
+	Tables table;
 	String directory;
 	
 	public TableManager(String directory) throws Custum_Exception{
@@ -34,7 +34,7 @@ public class TableManager {
 		}
 	}
 	
-	public TableManager(String directory, Table table) {
+	public TableManager(String directory, Tables table) {
 		this.directory=directory;
 		this.table=table;
 	}

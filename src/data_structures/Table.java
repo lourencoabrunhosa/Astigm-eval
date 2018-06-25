@@ -44,7 +44,7 @@ class lista{
 	}
 }
 
-public class Table {
+public class Table extends Tables {
 	lista[] disp;
 	int m;
 	

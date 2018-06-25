@@ -3,8 +3,8 @@ package data_structures;
 import java.time.LocalDateTime;
 
 public class doctor {
-	String FirstName;
-	String Surname;
+	public String FirstName;
+	public String Surname;
 	LocalDateTime LastLogin;
 	LocalDateTime accountcreated;
 	String databasename;
