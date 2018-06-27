@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 import GUI.Base_frame;
 import data_structures.TableManager;
+import data_structures.Tables;
 import data_structures.doctor;
 
 public class sign_up extends JPanel {
@@ -64,9 +65,15 @@ public class sign_up extends JPanel {
 		signup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				doctor doc=new doctor(Name.getText(),Surname.getText());
-				Doc_Table dt=new Doc_Table();
-				dt.add(doc);
-				TableManager tm=new TableManager("doctors",dt);
+				TableManager tm;
+				try{
+					tm=new TableManager("doctors");
+					((Doc_Table) tm.table).add(doc);
+				} catch(Exception e1) {
+					Tables dt=new Doc_Table();
+					((Doc_Table) dt).add(doc);
+					tm=new TableManager("doctors",dt);
+				} 
 				tm.close();
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {

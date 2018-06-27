@@ -1,10 +1,21 @@
 package login;
 
+import java.io.Serializable;
+
 import data_structures.Tables;
 import data_structures.doctor;
 
-class lista{
-	class Node{
+class lista implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	class Node implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		doctor val;
 		Node next;
 		
@@ -37,6 +48,11 @@ class lista{
 
 
 public class Doc_Table extends Tables{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	lista disp;
 
 	

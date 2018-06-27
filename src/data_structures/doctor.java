@@ -1,8 +1,14 @@
 package data_structures;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class doctor {
+public class doctor implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	public String FirstName;
 	public String Surname;
 	LocalDateTime LastLogin;

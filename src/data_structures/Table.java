@@ -45,6 +45,11 @@ class lista{
 }
 
 public class Table extends Tables {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	lista[] disp;
 	int m;
 	

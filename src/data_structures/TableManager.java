@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 
 public class TableManager {
 	
-	Tables table;
+	public Tables table;
 	String directory;
 	
 	public TableManager(String directory) throws Custum_Exception{
@@ -17,7 +17,7 @@ public class TableManager {
 		try {
 			FileInputStream fis = new FileInputStream(directory);
 			ObjectInputStream ois=new ObjectInputStream(fis);
-			table = (Table) ois.readObject();
+			table = (Tables) ois.readObject();
 			ois.close();
 			fis.close();
 		} catch (FileNotFoundException e) {
