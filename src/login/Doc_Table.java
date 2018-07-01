@@ -39,10 +39,22 @@ class lista implements Serializable {
 	Boolean search(String Name, String Surname) {
 		Node runner=first;
 		while(runner!=null) {
-			if(runner.val.FirstName==Name&&runner.val.Surname==Surname) return true;
+			if(runner.val.FirstName.equals(Name)&&runner.val.Surname.equals(Surname)) return true;
 			runner=runner.next;
 		}
 		return false;
+	}
+	
+	doctor login(String Name, String Surname) {
+		Node runner=first;
+		while(runner!=null) {
+			if(runner.val.FirstName.equals(Name)&&runner.val.Surname.equals(Surname)) {
+				runner.val.loged();
+				return runner.val;
+			}
+			runner=runner.next;
+		}
+		return null;
 	}
 }
 
@@ -66,6 +78,10 @@ public class Doc_Table extends Tables{
 	
 	public boolean search(String Name, String Surname) {
 		return disp.search(Name, Surname);
+	}
+	
+	public doctor login(String Name, String Surname) {
+		return disp.login(Name,Surname);
 	}
 	
 }

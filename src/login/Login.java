@@ -14,6 +14,9 @@ public class Login extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	
+	public sign_up signup;
+	public sign_in signin;
 
 	/**
 	 * Launch the application.
@@ -42,7 +45,13 @@ public class Login extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		contentPane.add(new sign_up(this));
+		signup=new sign_up(this);
+		//signup.setVisible(false);
+		//signin=new sign_in(this);
+		//signin.setVisible(true);
+		
+		//contentPane.add(signin);
+		contentPane.add(signup);
 		
 	}
 
