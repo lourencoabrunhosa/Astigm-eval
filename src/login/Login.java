@@ -16,7 +16,6 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	
 	public sign_up signup;
-	public sign_in signin;
 
 	/**
 	 * Launch the application.
@@ -46,11 +45,7 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		
 		signup=new sign_up(this);
-		//signup.setVisible(false);
-		//signin=new sign_in(this);
-		//signin.setVisible(true);
 		
-		//contentPane.add(signin);
 		contentPane.add(signup);
 		
 	}

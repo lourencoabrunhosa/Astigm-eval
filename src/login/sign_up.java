@@ -28,13 +28,15 @@ public class sign_up extends JPanel {
 	 * Create the panel.
 	 */
 	
-	Login parent;
-	int STATE;
+	public Login parent;
+	private int STATE;
 	
-	JTextField Name;
-	JTextField Surname;
+	private JTextField Name;
+	private JTextField Surname;
 	
-	JLabel Title;
+	private JLabel Title;
+	private JLabel warning;
+	
 	public sign_up(Login parent) {
 		
 		Locale.setDefault(Locale.US);
@@ -47,10 +49,17 @@ public class sign_up extends JPanel {
 		
 		Font FONT1=new Font("Tahoma",Font.PLAIN,14);
 		Font TitleFont = new Font("Tahoma",Font.BOLD,16);
+		Font WarningFont = new Font("Tahoma",Font.PLAIN,10);
 		
 		Title = new JLabel("SIGN IN");
 		Title.setFont(TitleFont);
 		Title.setBounds(170,10,150,20);
+		
+		warning = new JLabel("Doctor not registered, please sign up.");
+		warning.setForeground(Color.RED);
+		warning.setFont(WarningFont);
+		warning.setBounds(200,30,250,20);
+		warning.setVisible(false);
 		
 		JLabel Jlabel_1 = new JLabel("Name");
 		Jlabel_1.setFont(FONT1);
@@ -68,6 +77,7 @@ public class sign_up extends JPanel {
 		Surname.setBounds(150,115,150,20);
 		
 		add(Title);
+		add(warning);
 		add(Jlabel_1);
 		add(Jlabel_2);
 		add(Name);
@@ -94,10 +104,11 @@ public class sign_up extends JPanel {
 		add(signup);
 	}
 	
-	void signup() {
+	private void signup() {
 		if(STATE==0) {
 			STATE=1;
 			Title.setText("SIGN UP");
+			warning.setVisible(false);
 		}
 		else if(STATE==1) {
 			doctor doc=new doctor(Name.getText(),Surname.getText());
@@ -124,7 +135,7 @@ public class sign_up extends JPanel {
 		}
 	}
 	
-	void signin() {
+	private void signin() {
 		if(STATE==0) {
 			doctor doc;
 			TableManager tm;
@@ -149,6 +160,7 @@ public class sign_up extends JPanel {
 					throw new Exception();
 				}
 			} catch(Exception e1) {
+				warning.setVisible(true);
 				System.out.println("doctor not found!");
 			} 
 		}
