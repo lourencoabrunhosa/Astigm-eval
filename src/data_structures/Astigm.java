@@ -1,6 +1,13 @@
 package data_structures;
 
-public class Astigm {
+import java.io.Serializable;
+
+public class Astigm implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	protected double M;
 	protected double J0;
 	protected double J45;

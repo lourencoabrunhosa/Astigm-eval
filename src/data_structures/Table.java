@@ -1,7 +1,18 @@
 package data_structures;
 
-class lista{
-	class Node{
+import java.io.Serializable;
+
+class lista implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	class Node implements Serializable{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		patient val;
 		Node next;
 		
@@ -53,7 +64,7 @@ public class Table extends Tables {
 	lista[] disp;
 	int m;
 	
-	Table(int m){
+	public Table(int m){
 		this.m=m;
 		disp=new lista[m];
 		for(int i=0;i<m;i++) disp[i]=new lista();

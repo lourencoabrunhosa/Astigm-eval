@@ -19,7 +19,9 @@ public class Base_frame extends JFrame {
 	
 	public Features features;
 	public Patient_panel patient_panel;
-
+	
+	int STATE;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -40,8 +42,9 @@ public class Base_frame extends JFrame {
 	 * Create the frame.
 	 */
 	public Base_frame(doctor doc) {
+		STATE=0;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 600);
+		setBounds(100, 100, 700, 700);
 		setSize(700,600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -317,6 +317,7 @@ public class Input_IOL_cornea extends JPanel {
 			parent.parent.output.cornea.Output_analisis(preinfo, posinfo);
 			parent.parent.output.subjective.Output_analisis(preinfo, posinfo);
 			System.out.println("pos_info_iol calculated");
+			parent.parent.parent.parent.STATE=2;
 		}
 		else {
 			System.out.println("aborted due to lack of arguments");

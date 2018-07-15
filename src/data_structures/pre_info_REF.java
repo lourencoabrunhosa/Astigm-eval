@@ -2,6 +2,12 @@ package data_structures;
 
 public class pre_info_REF extends pre_info {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+
 	public pre_info_REF (double k1, double k2, double a1, double a2){
 		super();
 		if(k1>=k2) pre=new Astigm((k1+k2)/2,k1-k2,a1);

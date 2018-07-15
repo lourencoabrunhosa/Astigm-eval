@@ -127,6 +127,7 @@ public class sign_up extends JPanel {
 					try {
 						Base_frame frame = new Base_frame(doc);
 						frame.setVisible(true);
+						parent.setVisible(false);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -149,7 +150,8 @@ public class sign_up extends JPanel {
 							try {
 								Base_frame frame = new Base_frame(doc);
 								frame.setVisible(true);
-							} catch (Exception e) {
+								parent.setVisible(false);
+								} catch (Exception e) {
 								e.printStackTrace();
 							}
 						}
@@ -161,7 +163,6 @@ public class sign_up extends JPanel {
 				}
 			} catch(Exception e1) {
 				warning.setVisible(true);
-				System.out.println("doctor not found!");
 			} 
 		}
 		else if(STATE==1) {

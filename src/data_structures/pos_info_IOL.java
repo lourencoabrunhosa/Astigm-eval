@@ -2,6 +2,11 @@ package data_structures;
 
 public class pos_info_IOL extends pos_info {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	Astigm pos_cornea;
 	Astigm SIA_cornea;
 	Astigm diff_cornea;

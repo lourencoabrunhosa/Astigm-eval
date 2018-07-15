@@ -1,6 +1,11 @@
 package data_structures;
 
 public class pre_info_IOL extends pre_info {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	Astigm pre_cornea;
 	Astigm TIA_cornea;
 	

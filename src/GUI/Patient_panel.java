@@ -3,14 +3,20 @@ package GUI;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Locale;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import data_structures.Table;
+import data_structures.TableManager;
 import data_structures.doctor;
 import data_structures.patient;
 
@@ -29,11 +35,18 @@ public class Patient_panel extends JPanel {
 	
 	Base_frame parent;
 	
+	JTextField name;
+	JTextField surname;
+	
+	JComboBox<Integer> day;
+	JComboBox<Month> month;
+	JComboBox<Integer> year;
+	
 	public Patient_panel(Base_frame parent,doctor doc) {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(700,100));
+		setPreferredSize(new Dimension(700,120));
 		setLayout(null);
 		
 		this.parent=parent;
@@ -49,57 +62,57 @@ public class Patient_panel extends JPanel {
 		
 		JLabel JLabel_2=new JLabel("Name");
 		JLabel_2.setFont(label);
-		JLabel_2.setBounds(10,5,150,20);
+		JLabel_2.setBounds(12,19,150,20);
 		
 		JLabel JLabel_3=new JLabel("Surname");
 		JLabel_3.setFont(label);
-		JLabel_3.setBounds(100,10,150,20);
+		JLabel_3.setBounds(117,19,150,20);
 		
 		JLabel JLabel_4=new JLabel("Birth Date");
 		JLabel_4.setFont(label);
-		JLabel_4.setBounds(5,80,150,20);
+		JLabel_4.setBounds(5,90,150,20);
 		
 		JLabel JLabel_5=new JLabel("Day");
 		JLabel_5.setFont(label);
-		JLabel_5.setBounds(50,55,150,20);
+		JLabel_5.setBounds(72,65,150,15);
 		
 		JLabel JLabel_6=new JLabel("Month");
 		JLabel_6.setFont(label);
-		JLabel_6.setBounds(100,55,150,20);
+		JLabel_6.setBounds(152,65,150,15);
 		
 		JLabel JLabel_7=new JLabel("Year");
 		JLabel_7.setFont(label);
-		JLabel_7.setBounds(150,55,150,20);
+		JLabel_7.setBounds(232,65,150,15);
 		
-		JTextField name=new JTextField();
+		name=new JTextField();
 		name.setFont(label);
-		name.setBounds(10,25,100,20);
+		name.setBounds(10,38,100,20);
 		
-		JTextField surname=new JTextField();
+		surname=new JTextField();
 		surname.setFont(label);
-		surname.setBounds(100,25,100,20);
+		surname.setBounds(115,38,100,20);
 		
-		JComboBox<Integer> day=new JComboBox<Integer>();
+		day=new JComboBox<Integer>();
 		for(int i=1;i<=31;i++) {
 			day.addItem(i);
 		}
 		day.setFont(label);
-		day.setBounds(50,80,50,20);
+		day.setBounds(70,90,70,25);
 		
-		JComboBox<Integer> month=new JComboBox<Integer>();
-		for(int i=1;i<=12;i++) {
-			month.addItem(i);
+		month=new JComboBox<Month>();
+		for(Month m:Month.values()) {
+			month.addItem(m);
 		}
 		month.setFont(label);
-		month.setBounds(100,80,50,20);
+		month.setBounds(150,90,70,25);
 		
-		JComboBox<Integer> year=new JComboBox<Integer>();
+		year=new JComboBox<Integer>();
 		int y=LocalDate.now().getYear();
 		for(int i=0;i<=180;i++) {
 			year.addItem(y-i);
 		}
 		year.setFont(label);
-		year.setBounds(150,80,50,20);
+		year.setBounds(230,90,80,25);
 		
 		add(JLabel_1);
 		add(JLabel_2);
@@ -114,6 +127,46 @@ public class Patient_panel extends JPanel {
 		add(month);
 		add(year);
 		
+		JButton save =new JButton("Save to database");
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				savesurgery();
+			}		
+		});
+		save.setBounds(400,80,150,30);
+		
+		add(save);
+	}
+	private void savesurgery() {
+		if(parent.STATE==1) {
+			patient newguy=new patient(1,name.getText()+" "+surname.getText(),
+					(int) year.getSelectedItem(),(Month) month.getSelectedItem(),(int) day.getSelectedItem(),
+					parent.features.REF_patient.output.preinfo,parent.features.REF_patient.output.posinfo);
+			try {
+				TableManager tm=new TableManager(doc.getDataBaseName()+"ref");
+				((Table) tm.table).add(newguy);
+				tm.close();
+			} catch(Exception e) {
+				Table t=new Table(10);
+				t.add(newguy);
+				TableManager tm=new TableManager(doc.getDataBaseName()+"ref",t);
+				tm.close();
+			}	
+		} else if(parent.STATE==2){
+			patient newguy=new patient(1,name.getText()+" "+surname.getText(),
+					(int) year.getSelectedItem(),(Month) month.getSelectedItem(),(int) day.getSelectedItem(),
+					parent.features.IOL_patient.output.subjective.preinfo,parent.features.IOL_patient.output.subjective.posinfo);
+			try {
+				TableManager tm=new TableManager(doc.getDataBaseName()+"iol");
+				((Table) tm.table).add(newguy);
+				tm.close();
+			} catch(Exception e) {
+				Table t=new Table(10);
+				t.add(newguy);
+				TableManager tm=new TableManager(doc.getDataBaseName()+"iol",t);
+				tm.close();
+			}
+		}
 	}
 
 }

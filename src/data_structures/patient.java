@@ -1,10 +1,15 @@
 package data_structures;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
 
-public class patient {
+public class patient implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int id;
 	String name;
 	LocalDate birth;

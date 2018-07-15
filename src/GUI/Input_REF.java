@@ -296,6 +296,7 @@ public class Input_REF extends JPanel {
 			posinfo=new pos_info_REF(posk1,posk2,posa1,posa2,preinfo);
 			parent.output.Output_analisis(preinfo, posinfo);
 			System.out.println("pos_info calculated");
+			parent.parent.parent.STATE=1;
 		}
 	}
 	
