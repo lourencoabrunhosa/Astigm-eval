@@ -19,6 +19,7 @@ import data_structures.Table;
 import data_structures.TableManager;
 import data_structures.doctor;
 import data_structures.patient;
+import get_stats.Stats;
 
 public class Patient_panel extends JPanel {
 
@@ -82,7 +83,7 @@ public class Patient_panel extends JPanel {
 		
 		JLabel JLabel_7=new JLabel("Year");
 		JLabel_7.setFont(label);
-		JLabel_7.setBounds(232,65,150,15);
+		JLabel_7.setBounds(272,65,150,15);
 		
 		name=new JTextField();
 		name.setFont(label);
@@ -104,7 +105,7 @@ public class Patient_panel extends JPanel {
 			month.addItem(m);
 		}
 		month.setFont(label);
-		month.setBounds(150,90,70,25);
+		month.setBounds(150,90,115,25);
 		
 		year=new JComboBox<Integer>();
 		int y=LocalDate.now().getYear();
@@ -112,7 +113,7 @@ public class Patient_panel extends JPanel {
 			year.addItem(y-i);
 		}
 		year.setFont(label);
-		year.setBounds(230,90,80,25);
+		year.setBounds(270,90,80,25);
 		
 		add(JLabel_1);
 		add(JLabel_2);
@@ -133,9 +134,19 @@ public class Patient_panel extends JPanel {
 				savesurgery();
 			}		
 		});
-		save.setBounds(400,80,150,30);
+		save.setBounds(400,40,150,30);
 		
 		add(save);
+		
+		JButton stats = new JButton("Show stats");
+		stats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				System.out.println(Stats.getStats(1, 0, 100, doc.getDataBaseName()+"ref"));
+			}
+		});
+		stats.setBounds(400,80,150,30);
+		
+		add(stats);
 	}
 	private void savesurgery() {
 		if(parent.STATE==1) {

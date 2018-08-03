@@ -50,6 +50,7 @@ class lista implements Serializable{
 			for(int i=0;i<7;i++) {
 				results[i]+=parcel[i];
 			}
+			runner=runner.next;
 		}
 		return results;
 	}
@@ -86,7 +87,7 @@ public class Table extends Tables {
 		double[] results=new double[7];
 		for(int i=0; i<m;i++) {
 			double [] temp=disp[i].stats(var, minBound, maxBound);
-			for(int j=0;j<7;j++) results[i]+=temp[i];
+			for(int j=0;j<7;j++) results[j]+=temp[j];
 		}
 		return results;
 	}

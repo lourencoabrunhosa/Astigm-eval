@@ -60,9 +60,19 @@ public class Astigm implements Serializable{
 	}
 	public double[] show() {
 		double[] res=new double[3];
-		res[2]=angle(J0,J45);
+		if(J0==J45&&J0==0) res[2]=0;
+		else res[2]=angle(J0,J45);
 		res[1]=2*(Math.sqrt(Math.pow(J0,2)+Math.pow(J45, 2)));
 		res[0]=M-(res[1]/2);
+		return res;
+	}
+	
+	public static double[] convert(double[] arg) {
+		double[] res=new double[3];
+		if(arg[1]==arg[2]&&arg[1]==0) res[2]=0;
+		else res[2]=angle(arg[1],arg[2]);
+		res[1]=2*(Math.sqrt(Math.pow(arg[1],2)+Math.pow(arg[2], 2)));
+		res[0]=arg[0]-(res[1]/2);
 		return res;
 	}
 }
