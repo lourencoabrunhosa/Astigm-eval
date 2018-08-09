@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Locale;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -140,8 +141,13 @@ public class Patient_panel extends JPanel {
 		
 		JButton stats = new JButton("Show stats");
 		stats.addActionListener(new ActionListener() {
+			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent ae) {
-				System.out.println(Stats.getStats(1, 0, 100, doc.getDataBaseName()+"ref"));
+				parent.getContentPane().removeAll();
+				parent.getContentPane().add(parent.stats_show);
+				parent.getContentPane().revalidate();
+				parent.getContentPane().repaint();
+				System.out.println(Stats.getStats(1, new Vector<Vector>(), doc.getDataBaseName()+"ref"));
 			}
 		});
 		stats.setBounds(400,80,150,30);

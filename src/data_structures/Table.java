@@ -1,6 +1,7 @@
 package data_structures;
 
 import java.io.Serializable;
+import java.util.Vector;
 
 class lista implements Serializable{
 	/**
@@ -42,11 +43,12 @@ class lista implements Serializable{
 		return null;
 	}
 	
-	double[] stats(int var,double minBound, double maxBound ) {
+	@SuppressWarnings("rawtypes")
+	double[] stats(int var,Vector<Vector> filters) {
 		double[] results=new double[7];
 		Node runner=first;
 		while(runner!=null) {
-			double[] parcel=runner.val.getstats(var, minBound, maxBound);
+			double[] parcel=runner.val.getstats(var, filters);
 			for(int i=0;i<7;i++) {
 				results[i]+=parcel[i];
 			}
@@ -83,10 +85,11 @@ public class Table extends Tables {
 		return disp[h(id)].search(id);
 	}
 	
-	public double[] stats(int var, double minBound,double maxBound) {
+	@SuppressWarnings("rawtypes")
+	public double[] stats(int var, Vector<Vector> filters) {
 		double[] results=new double[7];
 		for(int i=0; i<m;i++) {
-			double [] temp=disp[i].stats(var, minBound, maxBound);
+			double [] temp=disp[i].stats(var, filters);
 			for(int j=0;j<7;j++) results[j]+=temp[j];
 		}
 		return results;

@@ -4,18 +4,20 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Vector;
 
 import data_structures.Astigm;
 import data_structures.Round;
 import data_structures.Table;
 
 public class Stats {
-	public static String getStats(int var, double minBound, double maxBound, String filename) {
+	@SuppressWarnings("rawtypes")
+	public static String getStats(int var, Vector<Vector> filters, String filename) {
 		FileInputStream fis;
 		try {
 			fis = new FileInputStream(filename);
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			double[] results=((Table)ois.readObject()).stats(var,minBound,maxBound);
+			double[] results=((Table)ois.readObject()).stats(var,filters);
 			ois.close();
 			fis.close();
 			double[] mean = {results[0]/results[6], results[1]/results[6], results[2]/results[6]};

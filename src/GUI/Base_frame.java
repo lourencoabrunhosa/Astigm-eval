@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import data_structures.doctor;
+import get_stats.Stats_Show;
 
 
 public class Base_frame extends JFrame {
@@ -17,8 +18,10 @@ public class Base_frame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
+	public doctor doc;
 	public Features features;
 	public Patient_panel patient_panel;
+	public Stats_Show stats_show;
 	
 	int STATE;
 	
@@ -42,6 +45,9 @@ public class Base_frame extends JFrame {
 	 * Create the frame.
 	 */
 	public Base_frame(doctor doc) {
+		
+		this.doc=doc;
+		
 		STATE=0;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 700);
@@ -55,6 +61,7 @@ public class Base_frame extends JFrame {
 		
 		features=new Features(this);
 		patient_panel=new Patient_panel(this,doc);
+		stats_show=new Stats_Show(this);
 		
 		contentPane.add(features);
 		contentPane.add(patient_panel,BorderLayout.PAGE_START);
