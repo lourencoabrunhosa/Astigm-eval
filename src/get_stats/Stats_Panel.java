@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import GUI.Base_frame;
 
@@ -25,6 +26,8 @@ public class Stats_Panel extends JPanel {
 	public Stats_Panel(Base_frame parent) {
 		
 		setPreferredSize(new Dimension(700,600));
+		setBorder(new EmptyBorder(1, 1, 1, 1));
+		setLayout(new BorderLayout(0, 0));
 		
 		this.parent=parent;
 		

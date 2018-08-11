@@ -51,7 +51,7 @@ public class Stats_Intro extends JPanel {
 	public Stats_Intro(Stats_Panel parent) {
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(260,600));
+		setPreferredSize(new Dimension(270,600));
 		setLayout(null);
 		
 		this.parent=parent;

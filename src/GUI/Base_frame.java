@@ -25,25 +25,6 @@ public class Base_frame extends JFrame {
 	
 	int STATE;
 	
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					Base_frame frame = new Base_frame(doc);
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Base_frame(doctor doc) {
 		
 		this.doc=doc;
