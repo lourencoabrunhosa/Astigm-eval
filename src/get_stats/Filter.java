@@ -31,11 +31,12 @@ public class Filter extends JPanel {
 	Stats_Show parent;
 	Filter_Frame container;
 	
+	@SuppressWarnings("deprecation")
 	public Filter(Stats_Show parent, Filter_Frame container) {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);
-		setPreferredSize(new Dimension(260,600));
+		setPreferredSize(new Dimension(240,200));
 		setLayout(null);
 		
 		this.parent=parent;
@@ -105,8 +106,11 @@ public class Filter extends JPanel {
 		min=new JTextField();
 		min.setBounds(120,50,70,30);
 		
+		
 		max=new JTextField();
 		max.setBounds(120,85,70,30);
+		
+		min.setNextFocusableComponent(max);
 		
 		JButton ok = new JButton("Ok");
 		ok.addActionListener(new ActionListener() {
@@ -114,7 +118,7 @@ public class Filter extends JPanel {
 				okaction();
 			}
 		});
-		ok.setBounds(200,70,70,30);
+		ok.setBounds(200,50,70,30);
 		
 		JButton cancel = new JButton("Cancel");
 		cancel.addActionListener(new ActionListener() {
@@ -122,7 +126,12 @@ public class Filter extends JPanel {
 				cancelaction();
 			}
 		});
-		cancel.setBounds(200,110,70,30);
+		cancel.setBounds(200,85,70,30);
+		
+		min.setNextFocusableComponent(max);
+		max.setNextFocusableComponent(ok);
+		ok.setNextFocusableComponent(cancel);
+		
 		
 		add(label_1);
 		add(label_2);

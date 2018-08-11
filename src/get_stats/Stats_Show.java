@@ -1,5 +1,6 @@
 package get_stats;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -44,8 +45,13 @@ public class Stats_Show extends JPanel {
 		
 		filter_table.setDefaultRenderer(Object.class, new ColorRenderer());
 		
+		filter_table.getColumnModel().getColumn(0).setPreferredWidth(140);
+		filter_table.getColumnModel().getColumn(1).setPreferredWidth(35);
+		filter_table.getColumnModel().getColumn(2).setPreferredWidth(35);
+		filter_table.getColumnModel().getColumn(3).setPreferredWidth(50);
+		
 		JScrollPane sp=new JScrollPane(filter_table);
-		sp.setBounds(50,50,240,200);
+		sp.setBounds(10,50,260,200);
 		
 		filter_table.addMouseListener(new MouseListener() {
 
@@ -88,15 +94,20 @@ public class Stats_Show extends JPanel {
 				newfilter();
 			}
 		});
-		addFilter.setBounds(50,10,100,30);
+		addFilter.setBounds(10,10,100,30);
 		
 		JButton removeFilters = new JButton("Remove all Filters");
 		removeFilters.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				my_model.setDataVector(null,colnames);
+				
+				filter_table.getColumnModel().getColumn(0).setPreferredWidth(140);
+				filter_table.getColumnModel().getColumn(1).setPreferredWidth(35);
+				filter_table.getColumnModel().getColumn(2).setPreferredWidth(35);
+				filter_table.getColumnModel().getColumn(3).setPreferredWidth(50);
 			}
 		});
-		removeFilters.setBounds(150,10,100,30);
+		removeFilters.setBounds(110,10,150,30);
 		
 		JButton getStats = new JButton("Get Stats");
 		getStats.addActionListener(new ActionListener() {
@@ -104,12 +115,25 @@ public class Stats_Show extends JPanel {
 				System.out.println(Stats.getStats(1, my_model.getDataVector(), parent.doc.getDataBaseName()+"ref"));
 			}
 		});
-		getStats.setBounds(100,270,100,30);
+		getStats.setBounds(170,270,100,30);
+		
+		JButton back = new JButton("Return");
+		back.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				parent.getContentPane().removeAll();
+				parent.getContentPane().add(parent.patient_panel, BorderLayout.PAGE_START);
+				parent.getContentPane().add(parent.features);
+				parent.getContentPane().revalidate();
+				parent.getContentPane().repaint();
+			}
+		});
+		back.setBounds(170,300,100,30);
 		
 		add(sp);
 		add(addFilter);
 		add(removeFilters);
 		add(getStats);
+		add(back);
 	}
 	
 	public void newfilter() {

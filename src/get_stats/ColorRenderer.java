@@ -2,8 +2,7 @@ package get_stats;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.image.ImageObserver;
+
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -32,11 +31,6 @@ public class ColorRenderer implements TableCellRenderer {
         } else {
             c.setBackground(ODD_ROW_COLOR);
         }
-        
-        if (column==0)c.setPreferredSize(new Dimension(150,ImageObserver.HEIGHT));
-        else if (column==1)c.setSize(30, c.getHeight());
-        else if (column==2)c.setSize(30, c.getHeight());
-        else if (column==3)c.setSize(30, c.getHeight());
         return c;
     }
 }

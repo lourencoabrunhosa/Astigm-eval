@@ -7,12 +7,11 @@ import java.io.ObjectInputStream;
 import java.util.Vector;
 
 import data_structures.Astigm;
-import data_structures.Round;
 import data_structures.Table;
 
 public class Stats {
 	@SuppressWarnings("rawtypes")
-	public static String getStats(int var, Vector<Vector> filters, String filename) {
+	public static double[][] getStats(int var, Vector<Vector> filters, String filename) {
 		FileInputStream fis;
 		try {
 			fis = new FileInputStream(filename);
@@ -26,7 +25,9 @@ public class Stats {
 								-(Math.sqrt(results[5]-Math.pow(results[2], 2)/results[6]))/results[6]};
 			mean=Astigm.convert(mean);
 			desvmed=Astigm.convert(desvmed);
-			return Round.round(mean[0],2)+" / "+Round.round(mean[1],2)+","+Round.round(mean[2],2)+" ± "+Round.round(Math.abs(desvmed[0]),2)+" / "+Round.round(desvmed[1],2)+","+Round.round(desvmed[2],2);
+			//return Round.round(mean[0],2)+" / "+Round.round(mean[1],2)+","+Round.round(mean[2],2)+" ± "+Round.round(Math.abs(desvmed[0]),2)+" / "+Round.round(desvmed[1],2)+","+Round.round(desvmed[2],2);
+			double[][] res={mean,desvmed};
+			return res;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,6 +38,6 @@ public class Stats {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return"";
+		return new double[2][3];
 	}
 }
