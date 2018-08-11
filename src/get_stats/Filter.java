@@ -28,11 +28,11 @@ public class Filter extends JPanel {
 	JTextField min;
 	JTextField max;
 	
-	Stats_Show parent;
+	Stats_Intro parent;
 	Filter_Frame container;
 	
 	@SuppressWarnings("deprecation")
-	public Filter(Stats_Show parent, Filter_Frame container) {
+	public Filter(Stats_Intro parent, Filter_Frame container) {
 		
 		Locale.setDefault(Locale.US);
 		setBackground(Color.WHITE);

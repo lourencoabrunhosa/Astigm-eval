@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import data_structures.doctor;
-import get_stats.Stats_Show;
+import get_stats.Stats_Panel;
 
 
 public class Base_frame extends JFrame {
@@ -21,7 +21,7 @@ public class Base_frame extends JFrame {
 	public doctor doc;
 	public Features features;
 	public Patient_panel patient_panel;
-	public Stats_Show stats_show;
+	public Stats_Panel stats;
 	
 	int STATE;
 	
@@ -61,7 +61,7 @@ public class Base_frame extends JFrame {
 		
 		features=new Features(this);
 		patient_panel=new Patient_panel(this,doc);
-		stats_show=new Stats_Show(this);
+		stats=new Stats_Panel(this);
 		
 		contentPane.add(features);
 		contentPane.add(patient_panel,BorderLayout.PAGE_START);

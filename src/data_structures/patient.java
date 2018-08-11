@@ -18,6 +18,24 @@ public class patient implements Serializable {
 	pre_info preinfo;
 	pos_info posinfo;
 	
+	protected final int PRE_SURGERY=1;
+	protected final int TIA_SURGERY=2;
+	protected final int POS_SURGERY=3;
+	protected final int SIA_SURGERY=4;
+	protected final int DIFF_SURGERY=5;
+	protected final int CI_SURGERY=6;
+	
+	protected final int PRE_CORNEA=7;
+	protected final int TIA_CORNEA=8;
+	protected final int POS_CORNEA=9;
+	protected final int SIA_CORNEA=10;
+	protected final int DIFF_CORNEA=11;
+	protected final int CI_CORNEA=12;
+	
+	protected final int REAL_IOL_AXIS=13;
+	protected final int IOL_LENS=14;
+	protected final int IOL_AXIS_DESV=15;
+	
 	public patient(int id, String name,int year,Month month,int day, pre_info preinfo, pos_info posinfo) {
 		this.id=id;
 		this.name=name;
@@ -31,7 +49,7 @@ public class patient implements Serializable {
 	public double[] getstats(int var, Vector<Vector> filters) {
 		double[] results=new double[7];
 		if(checkFilters(filters)) {
-			if(var==1) {
+			if(var==PRE_SURGERY) {
 				results[0]=preinfo.getPre().M;
 				results[1]=preinfo.getPre().J0;
 				results[2]=preinfo.getPre().J45;
@@ -40,7 +58,7 @@ public class patient implements Serializable {
 				results[5]=preinfo.getPre().J45*preinfo.getPre().J45;
 				results[6]=1;
 			}
-			if(var==2) {
+			if(var==TIA_SURGERY) {
 				results[0]=preinfo.getTIA().M;
 				results[1]=preinfo.getTIA().J0;
 				results[2]=preinfo.getTIA().J45;
@@ -49,7 +67,7 @@ public class patient implements Serializable {
 				results[5]=preinfo.getTIA().J45*preinfo.getTIA().J45;
 				results[6]=1;
 			}
-			if(var==3) {
+			if(var==POS_SURGERY) {
 				results[0]=posinfo.getPos().M;
 				results[1]=posinfo.getPos().J0;
 				results[2]=posinfo.getPos().J45;
@@ -58,7 +76,7 @@ public class patient implements Serializable {
 				results[5]=posinfo.getPos().J45*posinfo.getPos().J45;
 				results[6]=1;
 			}
-			if(var==4) {
+			if(var==SIA_SURGERY) {
 				results[0]=posinfo.getSIA().M;
 				results[1]=posinfo.getSIA().J0;
 				results[2]=posinfo.getSIA().J45;
@@ -67,7 +85,7 @@ public class patient implements Serializable {
 				results[5]=posinfo.getSIA().J45*posinfo.getSIA().J45;
 				results[6]=1;
 			}
-			if(var==5) {
+			if(var==DIFF_SURGERY) {
 				results[0]=posinfo.getDiff().M;
 				results[1]=posinfo.getDiff().J0;
 				results[2]=posinfo.getDiff().J45;
@@ -76,12 +94,12 @@ public class patient implements Serializable {
 				results[5]=posinfo.getDiff().J45*posinfo.getDiff().J45;
 				results[6]=1;
 			}
-			if(var==6) {
+			if(var==CI_SURGERY) {
 				results[0]=posinfo.getCI();
 				results[3]=posinfo.getCI()*posinfo.getCI();
 				results[6]=1;
 			}
-			if(var==7) {
+			if(var==PRE_CORNEA) {
 				results[0]=((pre_info_IOL) preinfo).getPreCornea().M;
 				results[1]=((pre_info_IOL) preinfo).getPreCornea().J0;
 				results[2]=((pre_info_IOL) preinfo).getPreCornea().J45;
@@ -90,7 +108,7 @@ public class patient implements Serializable {
 				results[5]=((pre_info_IOL) preinfo).getPreCornea().J45*((pre_info_IOL) preinfo).getPreCornea().J45;
 				results[6]=1;
 			}
-			if(var==8) {
+			if(var==TIA_CORNEA) {
 				results[0]=((pre_info_IOL) preinfo).getTIACornea().M;
 				results[1]=((pre_info_IOL) preinfo).getTIACornea().J0;
 				results[2]=((pre_info_IOL) preinfo).getTIACornea().J45;
@@ -99,7 +117,7 @@ public class patient implements Serializable {
 				results[5]=((pre_info_IOL) preinfo).getTIACornea().J45*((pre_info_IOL) preinfo).getTIACornea().J45;
 				results[6]=1;
 			}
-			if(var==9) {
+			if(var==POS_CORNEA) {
 				results[0]=((pos_info_IOL) posinfo).getPosCornea().M;
 				results[1]=((pos_info_IOL) posinfo).getPosCornea().J0;
 				results[2]=((pos_info_IOL) posinfo).getPosCornea().J45;
@@ -108,7 +126,7 @@ public class patient implements Serializable {
 				results[5]=((pos_info_IOL) posinfo).getPosCornea().J45*((pos_info_IOL) posinfo).getPosCornea().J45;
 				results[6]=1;
 			}
-			if(var==10) {
+			if(var==SIA_CORNEA) {
 				results[0]=((pos_info_IOL) posinfo).getSIACornea().M;
 				results[1]=((pos_info_IOL) posinfo).getSIACornea().J0;
 				results[2]=((pos_info_IOL) posinfo).getSIACornea().J45;
@@ -117,7 +135,7 @@ public class patient implements Serializable {
 				results[5]=((pos_info_IOL) posinfo).getSIACornea().J45*((pos_info_IOL) posinfo).getSIACornea().J45;
 				results[6]=1;
 			}
-			if(var==11) {
+			if(var==DIFF_CORNEA) {
 				results[0]=((pos_info_IOL) posinfo).getDiffCornea().M;
 				results[1]=((pos_info_IOL) posinfo).getDiffCornea().J0;
 				results[2]=((pos_info_IOL) posinfo).getDiffCornea().J45;
@@ -126,14 +144,28 @@ public class patient implements Serializable {
 				results[5]=((pos_info_IOL) posinfo).getDiffCornea().J45*((pos_info_IOL) posinfo).getDiffCornea().J45;
 				results[6]=1;
 			}
-			if(var==12) {
+			if(var==CI_CORNEA) {
 				results[0]=((pos_info_IOL) posinfo).getCICornea();
 				results[3]=((pos_info_IOL) posinfo).getCICornea()*((pos_info_IOL) posinfo).getCICornea();
 				results[6]=1;
 			}
-			if(var==12) {
+			if(var==REAL_IOL_AXIS) {
 				results[0]=((pos_info_IOL) posinfo).getIOLAxis();
 				results[3]=((pos_info_IOL) posinfo).getIOLAxis()*((pos_info_IOL) posinfo).getIOLAxis();
+				results[6]=1;
+			}
+			if(var==IOL_LENS) {
+				results[0]=((pos_info_IOL) posinfo).getIOL().M;
+				results[1]=((pos_info_IOL) posinfo).getIOL().J0;
+				results[2]=((pos_info_IOL) posinfo).getIOL().J45;
+				results[3]=((pos_info_IOL) posinfo).getIOL().M*((pos_info_IOL) posinfo).getIOL().M;
+				results[4]=((pos_info_IOL) posinfo).getIOL().J0*((pos_info_IOL) posinfo).getIOL().J0;
+				results[5]=((pos_info_IOL) posinfo).getIOL().J45*((pos_info_IOL) posinfo).getIOL().J45;
+				results[6]=1;
+			}
+			if(var==IOL_AXIS_DESV) {
+				results[0]=((pos_info_IOL) posinfo).getIOLAxis()-((pos_info_IOL) posinfo).getIOL().axis();
+				results[3]=(((pos_info_IOL) posinfo).getIOLAxis()-((pos_info_IOL) posinfo).getIOL().axis())*(((pos_info_IOL) posinfo).getIOLAxis()-((pos_info_IOL) posinfo).getIOL().axis());
 				results[6]=1;
 			}
 		}

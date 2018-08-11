@@ -144,7 +144,7 @@ public class Patient_panel extends JPanel {
 			@SuppressWarnings("rawtypes")
 			public void actionPerformed(ActionEvent ae) {
 				parent.getContentPane().removeAll();
-				parent.getContentPane().add(parent.stats_show);
+				parent.getContentPane().add(parent.stats);
 				parent.getContentPane().revalidate();
 				parent.getContentPane().repaint();
 				System.out.println(Stats.getStats(1, new Vector<Vector>(), doc.getDataBaseName()+"ref"));
