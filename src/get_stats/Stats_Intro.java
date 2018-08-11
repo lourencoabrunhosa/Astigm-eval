@@ -129,6 +129,7 @@ public class Stats_Intro extends JPanel {
 		JButton getStats = new JButton("Get Stats");
 		getStats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
+				parent.output.showREF();
 				System.out.println(Stats.getStats(PRE_SURGERY, my_model.getDataVector(), parent.parent.doc.getDataBaseName()+"ref"));
 			}
 		});
