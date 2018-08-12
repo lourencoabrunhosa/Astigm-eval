@@ -151,14 +151,24 @@ public class Stats_Out_REF extends JPanel {
 	}
 	
 	private String writeAst(double[][] results) {
-		if(results[0][0]==(1.0/0)) return "No data available";
-		return Round.round(results[0][0],2)+" / "+Round.round(results[0][1],2)+","+Round.round(results[0][2],2)+" ± "+
-				Round.round(results[1][0],2)+" / "+Round.round(results[1][1],2)+","+Round.round(results[1][2],2);
+		try {
+			return Round.round(results[0][0],2)+" / "+Round.round(results[0][1],2)+","+Round.round(results[0][2],2)+" ± "+
+					Round.round(results[1][0],2)+" / "+Round.round(results[1][1],2)+","+Round.round(results[1][2],2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "No data available";
+		}
 	}
 	
 	private String writePer(double[][] results) {
-		if(results[0][0]==(1.0/0)) return "No data available";
-		return Round.round(results[0][0]*100,2)+"% ± "+Round.round(results[1][0]*100,2)+"%";
+		try {
+			return Round.round(results[0][0]*100,2)+"% ± "+Round.round(results[1][0]*100,2)+"%";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "No data available";
+		}
 	}
 
 }

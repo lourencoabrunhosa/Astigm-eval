@@ -164,10 +164,20 @@ public class Output_IOL_subjective extends JPanel {
 		in.setVisible(true);
 		tia.setVisible(true);
 		double[] invals=preinfo.getPre().show();
-		in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		try {
+			in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		in_vals.setVisible(true);
 		double[] tiavals=preinfo.getTIA().show();
-		tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		try {
+			tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tia_vals.setVisible(true);
 		
 	}
@@ -180,10 +190,20 @@ public class Output_IOL_subjective extends JPanel {
 		in.setVisible(true);
 		tia.setVisible(true);
 		double[] invals=preinfo.getPre().show();
-		in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		try {
+			in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		in_vals.setVisible(true);
 		double[] tiavals=preinfo.getTIA().show();
-		tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		try {
+			tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tia_vals.setVisible(true);
 		
 		out.setVisible(true);
@@ -192,19 +212,44 @@ public class Output_IOL_subjective extends JPanel {
 		ci.setVisible(true);
 		iol_axis.setVisible(true);
 		double[] outvals=posinfo.getPos().show();
-		out_vals.setText(Round.round(outvals[0],2)+"  /  "+Round.round(outvals[1],2)+"    "+Round.round(outvals[2],2));
+		try {
+			out_vals.setText(Round.round(outvals[0],2)+"  /  "+Round.round(outvals[1],2)+"    "+Round.round(outvals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		out_vals.setVisible(true);
 		double[] siavals=posinfo.getSIA().show();
-		sia_vals.setText(Round.round(siavals[0],2)+"  /  "+Round.round(siavals[1],2)+"    "+Round.round(siavals[2],2));
+		try {
+			sia_vals.setText(Round.round(siavals[0],2)+"  /  "+Round.round(siavals[1],2)+"    "+Round.round(siavals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sia_vals.setVisible(true);
 		double[] diffvals=posinfo.getDiff().show();
-		diff_vals.setText(Round.round(diffvals[0],2)+"  /  "+Round.round(diffvals[1],2)+"    "+Round.round(diffvals[2],2));
+		try {
+			diff_vals.setText(Round.round(diffvals[0],2)+"  /  "+Round.round(diffvals[1],2)+"    "+Round.round(diffvals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		diff_vals.setVisible(true);
 		double cival=posinfo.getCI();
-		ci_val.setText(Round.round(cival*100,2)+"%");
+		try {
+			ci_val.setText(Round.round(cival*100,2)+"%");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ci_val.setVisible(true);
 		double iolval=((pos_info_IOL) posinfo).getIOLAxis();
-		iol_axis_val.setText(Round.round(iolval, 2)+"");
+		try {
+			iol_axis_val.setText(Round.round(iolval, 2)+"");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		iol_axis_val.setVisible(true);
 
 	}

@@ -149,10 +149,20 @@ public class Output_IOL_cornea extends JPanel {
 		in.setVisible(true);
 		tia.setVisible(true);
 		double[] invals=((pre_info_IOL) preinfo).getPreCornea().show();
-		in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		try {
+			in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		in_vals.setVisible(true);
 		double[] tiavals=((pre_info_IOL) preinfo).getTIACornea().show();
-		tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		try {
+			tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tia_vals.setVisible(true);
 		
 	}
@@ -165,10 +175,20 @@ public class Output_IOL_cornea extends JPanel {
 		in.setVisible(true);
 		tia.setVisible(true);
 		double[] invals=((pre_info_IOL) preinfo).getPreCornea().show();
-		in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		try {
+			in_vals.setText(Round.round(invals[0],2)+"  /  "+Round.round(invals[1],2)+"    "+Round.round(invals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		in_vals.setVisible(true);
 		double[] tiavals=((pre_info_IOL) preinfo).getTIACornea().show();
-		tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		try {
+			tia_vals.setText(Round.round(tiavals[0],2)+"  /  "+Round.round(tiavals[1],2)+"    "+Round.round(tiavals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tia_vals.setVisible(true);
 		
 		out.setVisible(true);
@@ -176,16 +196,36 @@ public class Output_IOL_cornea extends JPanel {
 		diff.setVisible(true);
 		ci.setVisible(true);
 		double[] outvals=((pos_info_IOL) posinfo).getPosCornea().show();
-		out_vals.setText(Round.round(outvals[0],2)+"  /  "+Round.round(outvals[1],2)+"    "+Round.round(outvals[2],2));
+		try {
+			out_vals.setText(Round.round(outvals[0],2)+"  /  "+Round.round(outvals[1],2)+"    "+Round.round(outvals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		out_vals.setVisible(true);
 		double[] siavals=((pos_info_IOL) posinfo).getSIACornea().show();
-		sia_vals.setText(Round.round(siavals[0],2)+"  /  "+Round.round(siavals[1],2)+"    "+Round.round(siavals[2],2));
+		try {
+			sia_vals.setText(Round.round(siavals[0],2)+"  /  "+Round.round(siavals[1],2)+"    "+Round.round(siavals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sia_vals.setVisible(true);
 		double[] diffvals=((pos_info_IOL) posinfo).getDiffCornea().show();
-		diff_vals.setText(Round.round(diffvals[0],2)+"  /  "+Round.round(diffvals[1],2)+"    "+Round.round(diffvals[2],2));
+		try {
+			diff_vals.setText(Round.round(diffvals[0],2)+"  /  "+Round.round(diffvals[1],2)+"    "+Round.round(diffvals[2],2));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		diff_vals.setVisible(true);
 		double cival=((pos_info_IOL) posinfo).getCICornea();
-		ci_val.setText(Round.round(cival*100,2)+"%");
+		try {
+			ci_val.setText(Round.round(cival*100,2)+"%");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ci_val.setVisible(true);
 	}
 

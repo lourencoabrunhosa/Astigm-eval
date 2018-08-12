@@ -42,16 +42,16 @@ public class Stats_Show extends JPanel {
 		removeAll();
 		subiolstats=new Stats_Out_IOL_Sub(parent);
 		subiolstats.setBounds(0,0,418,600);
-		add(refstats);
+		coriolstats=new Stats_Out_IOL_Cor(parent);
+		coriolstats.setBounds(0,0,418,600);
+		add(subiolstats);
 		revalidate();
 		repaint();
 	}
 	
 	public void showIOLCor() {
 		removeAll();
-		coriolstats=new Stats_Out_IOL_Cor(parent);
-		coriolstats.setBounds(0,0,418,600);
-		add(refstats);
+		add(coriolstats);
 		revalidate();
 		repaint();
 	}

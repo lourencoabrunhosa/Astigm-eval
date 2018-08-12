@@ -10,7 +10,7 @@ import data_structures.Astigm;
 import data_structures.Table;
 
 public class Stats {
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "resource" })
 	public static double[][] getStats(int var, Vector<Vector> filters, String filename) {
 		FileInputStream fis;
 		try {
@@ -31,13 +31,18 @@ public class Stats {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new double[2][3];
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new double[2][3];
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new double[2][3];
+		} catch (Exception e) {
+			return new double[2][3];
 		}
-		return new double[2][3];
+		
 	}
 }
