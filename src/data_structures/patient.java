@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.LinkedList;
 import java.util.Vector;
 
 public class patient implements Serializable {
@@ -329,4 +330,53 @@ public class patient implements Serializable {
 		}
 		return res;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public void getTIAvsSIA(LinkedList<Double> TIA,LinkedList<Double> SIA,Vector<Vector> filters) {
+		if(checkFilters(filters)) {
+			double t=preinfo.getTIA().Mag();
+			double proj=posinfo.getCI();
+			TIA.add(t);
+			SIA.add(proj*t);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public int[] getAxisError(double[] x,Vector<Vector> filters) {
+		int[] y=new int[x.length+1];
+		if(checkFilters(filters)) {
+			for(int i=0;i<x.length;i++) {
+				if(posinfo.getSIA().axis()-preinfo.getTIA().axis()<x[i]) {
+					y[i]=1;
+					break;
+				}
+			}
+			y[x.length]=1;
+		}
+		return y;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public int[][] getPrevsPos(double[] x,Vector<Vector> filters) {
+		int[][] y=new int[2][x.length+1];
+		if(checkFilters(filters)) {
+			for(int i=0;i<x.length;i++) {
+				if(preinfo.getPre().Mag()<x[i]) {
+					y[0][i]=1;
+					break;
+				}
+			}
+			for(int i=0;i<x.length;i++) {
+				if(posinfo.getPos().Mag()<x[i]) {
+					y[1][i]=1;
+					
+				}
+			}
+			y[0][x.length]=1;
+			y[1][x.length]=1;
+		}
+		return y;
+	}
+	
+	
 }

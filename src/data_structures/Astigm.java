@@ -50,6 +50,10 @@ public class Astigm implements Serializable{
 		return (this.M*other.M+this.J0*other.J0+this.J45*other.J45)/(other.M*other.M+other.J0*other.J0+other.J45*other.J45);
 	}
 	
+	public double Mag() {
+		return (this.M*this.M+this.J0*this.J0+this.J45*this.J45);
+	}
+	
 	private static double angle(double J0, double J45) {
 		double x= Math.toDegrees(Math.atan2(J45, J0))/2;
 		return x+90;

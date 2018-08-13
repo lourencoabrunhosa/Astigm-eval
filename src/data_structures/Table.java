@@ -1,6 +1,7 @@
 package data_structures;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.Vector;
 
 class lista implements Serializable{
@@ -56,6 +57,44 @@ class lista implements Serializable{
 		}
 		return results;
 	}
+	
+	@SuppressWarnings("rawtypes")
+	void getTIAvsSIA(LinkedList<Double> TIA,LinkedList<Double> SIA,Vector<Vector> filters) {
+		Node runner=first;
+		while(runner!=null) {
+			runner.val.getTIAvsSIA(TIA,SIA,filters);
+			runner=runner.next;
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	int[] getAxisError(double[] x,Vector<Vector> filters) {
+		int[] results=new int[x.length+1];
+		Node runner=first;
+		while(runner!=null) {
+			int[] parcel=runner.val.getAxisError(x, filters);
+			for(int i=0;i<x.length+1;i++) {
+				results[i]+=parcel[i];
+			}
+			runner=runner.next;
+		}
+		return results;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	int[][] getPrevsPos(double[] x,Vector<Vector> filters) {
+		int[][] results=new int[2][x.length+1];
+		Node runner=first;
+		while(runner!=null) {
+			int[][] parcel=runner.val.getPrevsPos(x, filters);
+			for(int i=0;i<7;i++) {
+				results[0][i]+=parcel[0][i];
+				results[1][i]+=parcel[1][i];
+			}
+			runner=runner.next;
+		}
+		return results;
+	}
 }
 
 public class Table extends Tables {
@@ -93,5 +132,44 @@ public class Table extends Tables {
 			for(int j=0;j<7;j++) results[j]+=temp[j];
 		}
 		return results;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void getTIAvsSIA(LinkedList<Double> TIA,LinkedList<Double> SIA,Vector<Vector> filters) {
+		for(int i=0; i<m;i++) {
+			disp[i].getTIAvsSIA(TIA, SIA, filters);
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public double[] getAxisError(double[] x, Vector<Vector> filters) {
+		int[] results=new int[x.length+1];
+		for(int i=0; i<m;i++) {
+			int [] temp=disp[i].getAxisError(x, filters);
+			for(int j=0;j<x.length+1;j++) results[j]+=temp[j];
+		}
+		double[] res=new double[x.length];
+		for(int i=0;i<res.length;i++) {
+			res[i]=(results[i]*100)/results[x.length-1];
+		}
+		return res;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public double[][] getPrevsPos(double[] x, Vector<Vector> filters) {
+		int[][] results=new int[2][x.length+1];
+		for(int i=0; i<m;i++) {
+			int [][] temp=disp[i].getPrevsPos(x, filters);
+			for(int j=0;j<x.length+1;j++) {
+				results[0][j]+=temp[0][j];
+				results[1][j]+=temp[1][j];
+			}
+		}
+		double[][] res=new double[2][x.length];
+		for(int i=0;i<res.length;i++) {
+			res[0][i]=(results[0][i]*100)/results[0][x.length-1];
+			res[1][i]=(results[1][i]*100)/results[1][x.length-1];
+		}
+		return res;
 	}
 }
