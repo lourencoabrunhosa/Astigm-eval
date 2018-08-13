@@ -295,10 +295,8 @@ public class Input_IOL_cornea extends JPanel {
 			parent.subjective.preinfo=preinfo;
 			parent.parent.output.cornea.Output_TIA(preinfo);
 			parent.parent.output.subjective.Output_TIA(preinfo);
-			System.out.println("pre_info_iol calculated");
 		}
 		else {
-			System.out.println("aborted due to lack of arguments");
 			errorinfo1.setVisible(true);
 			parent.subjective.errorinfo1.setVisible(true);
 		}
@@ -316,11 +314,9 @@ public class Input_IOL_cornea extends JPanel {
 			parent.subjective.posinfo=posinfo;
 			parent.parent.output.cornea.Output_analisis(preinfo, posinfo);
 			parent.parent.output.subjective.Output_analisis(preinfo, posinfo);
-			System.out.println("pos_info_iol calculated");
 			parent.parent.parent.parent.STATE=2;
 		}
 		else {
-			System.out.println("aborted due to lack of arguments");
 			errorinfo2.setVisible(true);
 			parent.subjective.errorinfo2.setVisible(true);
 		}

@@ -274,28 +274,23 @@ public class Input_REF extends JPanel {
 	
 	private void get_TIA() {
 		if(prek1==-1||prek2==-1||prea1==-1||prea2==-1) {
-			System.out.println("aborted due to lack of arguments");
 			errorinfo1.setVisible(true);
 		}
 		else {
 			preinfo=new pre_info_REF(prek1,prek2,prea1,prea2);
 			parent.output.Output_TIA(preinfo);
-			System.out.println("pre_info calculated");
 		}
 	}
 	
 	private void get_SIA() {
 		if(prek1==-1||prek2==-1||prea1==-1||prea2==-1||posk1==-1||posk2==-1||posa1==-1||posa2==-1) {
-			System.out.println("aborted due to lack of arguments");
 			errorinfo2.setVisible(true);
 		}
 		else {
 			preinfo=new pre_info_REF(prek1,prek2,prea1,prea2);
 			parent.output.Output_TIA(preinfo);
-			System.out.println("pre_info calculated");
 			posinfo=new pos_info_REF(posk1,posk2,posa1,posa2,preinfo);
 			parent.output.Output_analisis(preinfo, posinfo);
-			System.out.println("pos_info calculated");
 			parent.parent.parent.STATE=1;
 		}
 	}
