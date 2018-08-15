@@ -95,6 +95,16 @@ class lista implements Serializable{
 		}
 		return results;
 	}
+
+	@SuppressWarnings("rawtypes")
+	public void getGeneralPlot(int var,LinkedList<Double> s, LinkedList<Double> cx, LinkedList<Double> cy,Vector<Vector> filters) {
+		Node runner=first;
+		while(runner!=null) {
+			runner.val.getGeneralPlot(var,s,cx,cy,filters);
+			runner=runner.next;
+		}
+		
+	}
 }
 
 public class Table extends Tables {
@@ -171,5 +181,12 @@ public class Table extends Tables {
 			res[1][i]=(results[1][i]*100)/results[1][x.length-1];
 		}
 		return res;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void getGeneralPlot(int var,LinkedList<Double> S,LinkedList<Double> Cx,LinkedList<Double> Cy,Vector<Vector> filters) {
+		for(int i=0; i<m;i++) {
+			disp[i].getGeneralPlot(var,S,Cx,Cy, filters);
+		}
 	}
 }
