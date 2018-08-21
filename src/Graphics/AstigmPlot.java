@@ -8,7 +8,7 @@ import data_structures.Round;
 
 
 
-public class My_canvas extends Canvas {
+public class AstigmPlot extends Canvas {
 
 	/**
 	 * 
@@ -24,7 +24,7 @@ public class My_canvas extends Canvas {
 	
 	private double[][] data; 
 	
-	public My_canvas(double[][] data) {
+	public AstigmPlot(double[][] data) {
 		this.data=data;
 		for(int i=0;i<data[0].length;i++) {
 			if(data[0][i]>maxS) maxS=data[0][i];
