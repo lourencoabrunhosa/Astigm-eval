@@ -167,5 +167,8 @@ public class My_canvas extends Canvas {
 		}
 	}
 	
+	public void setBounds(int x,int y) {
+		super.setBounds(x,y,500,300);
+	}
 
 }
