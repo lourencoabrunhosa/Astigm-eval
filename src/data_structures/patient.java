@@ -369,6 +369,7 @@ public class patient implements Serializable {
 			for(int i=0;i<x.length;i++) {
 				if(posinfo.getPos().Mag()<x[i]) {
 					y[1][i]=1;
+					break;
 					
 				}
 			}
@@ -384,68 +385,68 @@ public class patient implements Serializable {
 			if(var==PRE_SURGERY) {
 				double[] a=preinfo.getPre().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==TIA_SURGERY) {
 				double[] a=preinfo.getTIA().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==POS_SURGERY) {
 				double[] a=posinfo.getPos().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==SIA_SURGERY) {
 				double[] a=posinfo.getSIA().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==DIFF_SURGERY) {
 				double[] a=posinfo.getDiff().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==PRE_CORNEA) {
 				double[] a=((pre_info_IOL) preinfo).getPreCornea().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==TIA_CORNEA) {
 				double[] a=((pre_info_IOL) preinfo).getTIA().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==POS_CORNEA) {
 				double[] a=((pos_info_IOL) posinfo).getPos().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==SIA_CORNEA) {
 				double[] a=((pos_info_IOL) posinfo).getSIA().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==DIFF_CORNEA) {
 				double[] a=((pos_info_IOL) posinfo).getDiff().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 			if(var==IOL_LENS) {
 				double[] a=((pos_info_IOL) posinfo).getIOL().show();
 				s.add(a[0]);
-				cx.add(a[1]*Math.cos(a[2]));
-				cy.add(a[1]*Math.sin(a[2]));
+				cx.add(a[1]*Math.cos(Math.toRadians(a[2])));
+				cy.add(a[1]*Math.sin(Math.toRadians(a[2])));
 			}
 		}
 	}

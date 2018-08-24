@@ -125,11 +125,21 @@ public class AstigmPlot extends Canvas {
 		double val=maxS;
 		y=28;
 		for(int i=0;i<10;i++) {
-			g.drawString(""+val,465 , y);
+			try {
+				g.drawString(""+Round.round(val,1),465 , y);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			val-=step;
 			y+=20;
 		}
-		g.drawString(""+val,465 , 230);
+		try {
+			g.drawString(""+Round.round(val,1),465 , 230);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		step=maxC/6;
 		val=maxC;

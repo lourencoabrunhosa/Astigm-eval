@@ -87,7 +87,7 @@ class lista implements Serializable{
 		Node runner=first;
 		while(runner!=null) {
 			int[][] parcel=runner.val.getPrevsPos(x, filters);
-			for(int i=0;i<7;i++) {
+			for(int i=0;i<x.length+1;i++) {
 				results[0][i]+=parcel[0][i];
 				results[1][i]+=parcel[1][i];
 			}
@@ -160,7 +160,7 @@ public class Table extends Tables {
 		}
 		double[] res=new double[x.length];
 		for(int i=0;i<res.length;i++) {
-			res[i]=(results[i]*100)/results[x.length-1];
+			res[i]=(results[i]*100)/results[x.length];
 		}
 		return res;
 	}
@@ -176,9 +176,9 @@ public class Table extends Tables {
 			}
 		}
 		double[][] res=new double[2][x.length];
-		for(int i=0;i<res.length;i++) {
-			res[0][i]=(results[0][i]*100)/results[0][x.length-1];
-			res[1][i]=(results[1][i]*100)/results[1][x.length-1];
+		for(int i=0;i<res[0].length;i++) {
+			res[0][i]=(results[0][i]*100)/results[0][x.length];
+			res[1][i]=(results[1][i]*100)/results[1][x.length];
 		}
 		return res;
 	}

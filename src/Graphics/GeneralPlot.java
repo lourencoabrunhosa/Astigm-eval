@@ -12,7 +12,7 @@ import data_structures.Table;
 public class GeneralPlot {
 
 	@SuppressWarnings("rawtypes")
-	public static double[][] data(String filename,int var,Vector<Vector> filters,double pace) {
+	public static double[][] data(String filename,int var,Vector<Vector> filters) {
 
 		LinkedList<Double> S=new LinkedList<Double>();
 		LinkedList<Double> Cx=new LinkedList<Double>();
