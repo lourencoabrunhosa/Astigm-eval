@@ -1,7 +1,6 @@
 package Graphics;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.util.Vector;
 
 import javax.swing.JFrame;
@@ -22,18 +21,18 @@ public class Graphic_Show extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Graphic_Show frame = new Graphic_Show();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Graphic_Show frame = new Graphic_Show();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
@@ -47,20 +46,22 @@ public class Graphic_Show extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		String filename="olaadeus829513000ref";
+		String filename="olaadeus829513000iol";
 		Vector<Vector> filters=new Vector<Vector>();
 		
-		contentPane.add(new Graphics_panel(filename,filters),BorderLayout.PAGE_START);
+		contentPane.add(new Graphics_panel(filename,filters));
 		
-		JFXPanel pvp = new JFXPanel();
-		Scene scenepvp=new Scene(barchart.barChartV(PrevsPos.data(filename, filters)),500,300);
-		pvp.setScene(scenepvp);		
-		JFXPanel ae = new JFXPanel();
-		Scene sceneae=new Scene(barchart.barChartH(axisError.data(filename, filters)),500,300);
-		ae.setScene(sceneae);
-		
-		contentPane.add(ae,BorderLayout.LINE_START);
-		contentPane.add(pvp,BorderLayout.LINE_END);
+//		JFXPanel pvp = new JFXPanel();
+//		Scene scenepvp=new Scene(barchart.barChartV(PrevsPos.data(filename, filters)),500,300);
+//		System.out.println("print1");
+//		pvp.setScene(scenepvp);	
+//		System.out.println("print2");
+//		JFXPanel ae = new JFXPanel();
+//		Scene sceneae=new Scene(barchart.barChartH(axisError.data(filename, filters)),500,300);
+//		ae.setScene(sceneae);
+//		
+//		contentPane.add(ae,BorderLayout.LINE_START);
+//		contentPane.add(pvp,BorderLayout.LINE_END);
 	}
 
 }

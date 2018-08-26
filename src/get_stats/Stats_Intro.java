@@ -15,6 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Graphics.Graphic_Show;
+
 public class Stats_Intro extends JPanel {
 
 	/**
@@ -138,7 +140,15 @@ public class Stats_Intro extends JPanel {
 				parent.parent.getContentPane().repaint();
 			}
 		});
-		back.setBounds(170,300,100,30);
+		back.setBounds(170,330,100,30);
+		
+		JButton getGraphics = new JButton("get Graphics");
+		getGraphics.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				newplot();
+			}
+		});
+		getGraphics.setBounds(170,300,100,30);
 		
 		add(sp);
 		add(addFilter);
@@ -146,6 +156,7 @@ public class Stats_Intro extends JPanel {
 		add(getStats);
 		add(back);
 		add(surgery);
+		add(getGraphics);
 	}
 	
 	public void newfilter() {
@@ -161,6 +172,20 @@ public class Stats_Intro extends JPanel {
 			}
 		});
 		t.start();
+	}
+	
+	public void newplot() {
+		Thread t2= new Thread(new Runnable() {
+			public void run() {
+				try {
+					Graphic_Show frame = new Graphic_Show();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		t2.start();
 	}
 
 }

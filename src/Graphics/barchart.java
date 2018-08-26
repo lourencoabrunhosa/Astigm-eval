@@ -49,6 +49,7 @@ public class barchart{
 		XYChart.Series series1 = new XYChart.Series<>();
 		
 		series1.getData().add(new XYChart.Data<Number,String>(data[1][0],"< "+data[0][0]));
+		
 		double x=data[0][0];
 		for(int i=1;i<data[0].length-1;i++) {
 			series1.getData().add(new XYChart.Data<Number,String>(data[1][i], x+" - "+data[0][i]));
