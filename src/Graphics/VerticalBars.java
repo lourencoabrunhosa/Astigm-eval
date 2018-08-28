@@ -24,6 +24,8 @@ public class VerticalBars extends Canvas {
 	 }
 	 max=Math.min(10.0*((int) max/10)+10, 100);
 	 
+	 setBackground(Color.WHITE);
+	 
 	}
 	
 	@Override

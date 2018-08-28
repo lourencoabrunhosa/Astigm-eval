@@ -38,10 +38,7 @@ public class AstigmPlot extends Canvas {
 			e.printStackTrace();
 		}
 		
-//		maxS=8;
-//		minS=3;
-//		
-//		maxC=4;
+		setBackground(Color.WHITE);
 	}
 	
 	@Override

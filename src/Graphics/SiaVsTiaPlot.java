@@ -37,6 +37,8 @@ public class SiaVsTiaPlot extends Canvas {
 		
 		xporpotion=(420-40)/max;
 		yporpotion=(225-25)/max;
+		
+		setBackground(Color.WHITE);
 	}
 	
 	@Override
