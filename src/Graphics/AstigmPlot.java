@@ -3,6 +3,7 @@ package Graphics;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import data_structures.Round;
 
@@ -24,9 +25,27 @@ public class AstigmPlot extends Canvas {
 	
 	private double[][] data; 
 	
+	private double µcx=0;
+	private double µcy=0;
+	private double n;
+	private double cov11;
+	private double cov12;
+	private double cov22;
+	
+	private double c;
+	private double l1;
+	private double l2;
+	
+	private double theta;
+	
+	
+	
 	public AstigmPlot(double[][] data) {
 		this.data=data;
-		for(int i=0;i<data[0].length;i++) {
+		n=data[0].length;
+		for(int i=0;i<n;i++) {
+			µcx+=data[1][i];
+			µcy+=data[2][i];
 			if(data[0][i]>maxS) maxS=data[0][i];
 			if(data[0][i]<minS) minS=data[0][i];
 			if(Math.sqrt(Math.pow(data[1][i], 2)+Math.pow(data[2][i], 2))>maxC) maxC=Math.sqrt(Math.pow(data[1][i], 2)+Math.pow(data[2][i], 2));
@@ -37,6 +56,32 @@ public class AstigmPlot extends Canvas {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		µcx/=n;
+		µcy/=n;
+		
+		cov11=0;
+		cov22=0;
+		cov12=0;
+		for(int i=0;i<n;i++) {
+			cov11+=(data[1][i]-µcx)*(data[1][i]-µcx);
+			cov22+=(data[2][i]-µcy)*(data[2][i]-µcy);
+			cov12+=(data[1][i]-µcy)*(data[2][i]-µcy);
+		}
+		cov11/=n;
+		cov22/=n;
+		cov12/=n;
+		
+		
+		
+		l1=((cov11+cov22)+Math.sqrt((cov11*cov11)+4*(cov12*cov12)+(cov22*cov22)-2*cov11*cov22))/2;
+		l2=((cov11+cov22)-Math.sqrt((cov11*cov11)+4*(cov12*cov12)+(cov22*cov22)-2*cov11*cov22))/2;
+		
+		c=(l1+l2)/2;
+		
+		if(cov12>=0) theta=-(Math.acos((cov11-c)/(l1-c)))/2;
+		else if(cov11>l1) theta=0;
+		else theta=(Math.acos((cov11-c)/(l1-c)))/2;
 		
 		setBackground(Color.WHITE);
 	}
@@ -171,6 +216,18 @@ public class AstigmPlot extends Canvas {
 				e.printStackTrace();
 			}
 	
+		}
+		
+		g.setColor(Color.BLACK);
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.rotate(theta,225+µcx*porpotion,225-µcy*porpotion);
+		
+		try {
+			g2d.drawOval((int) Round.round(225+(µcx-Math.sqrt(l1*5.991))*porpotion,0),(int) Round.round(225-(µcy+Math.sqrt(l2*5.991))*porpotion,0),(int) Round.round(2*porpotion*Math.sqrt(l1*5.991),0),(int) Round.round(2*porpotion*Math.sqrt(l2*5.991),0));
+			System.out.println("cenas");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
