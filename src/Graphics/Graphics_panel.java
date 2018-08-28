@@ -29,15 +29,18 @@ public class Graphics_panel extends JPanel {
 		
 		SiaVsTiaPlot svt = new SiaVsTiaPlot(TIAvsSIA.data(filename,filters));
 		AstigmPlot ap = new AstigmPlot(GeneralPlot.data(filename, 1, filters));
+		VerticalBars vb = new VerticalBars(PrevsPos.data(filename, filters));
 		
 		
 		
 		ap.setBounds(501,1);
 		svt.setBounds(1,1,500,300);
+		vb.setBounds(1,301,500,300);
 		
 		
 		add(ap);
 		add(svt);
+		add(vb);
 
 	}
 

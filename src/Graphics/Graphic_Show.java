@@ -7,9 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-
 public class Graphic_Show extends JFrame {
 
 	/**
@@ -46,7 +43,7 @@ public class Graphic_Show extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		String filename="olaadeus829513000iol";
+		String filename="olaadeus829513000ref";
 		Vector<Vector> filters=new Vector<Vector>();
 		
 		contentPane.add(new Graphics_panel(filename,filters));
