@@ -43,7 +43,7 @@ public class Graphic_Show extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		String filename="olaadeus829513000ref";
+		String filename="olaadeus829513000iol";
 		Vector<Vector> filters=new Vector<Vector>();
 		
 		contentPane.add(new Graphics_panel(filename,filters));

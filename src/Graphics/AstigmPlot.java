@@ -224,7 +224,6 @@ public class AstigmPlot extends Canvas {
 		
 		try {
 			g2d.drawOval((int) Round.round(225+(µcx-Math.sqrt(l1*5.991))*porpotion,0),(int) Round.round(225-(µcy+Math.sqrt(l2*5.991))*porpotion,0),(int) Round.round(2*porpotion*Math.sqrt(l1*5.991),0),(int) Round.round(2*porpotion*Math.sqrt(l2*5.991),0));
-			System.out.println("cenas");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
