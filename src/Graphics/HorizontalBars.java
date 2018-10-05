@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import data_structures.Round;
 
@@ -28,27 +29,28 @@ public class HorizontalBars extends Canvas {
 	public void paint(Graphics g) {
 		double porpotion=(390/max);
 			
+		Font regular = g.getFont();
 		
 		g.setColor(Color.BLACK);
 		
-		g.drawLine(50,225,440,225);
-		g.drawLine(50, 225, 50, 21);
+		g.drawLine(90,255,480,255);
+		g.drawLine(90, 255, 90, 51);
 		
 		for(int i=1;i<=10;i++) {
-			g.drawLine(50+i*39, 225, 50+i*39, 230);
+			g.drawLine(90+i*39, 255, 90+i*39, 260);
 			g.setColor(Color.LIGHT_GRAY);
-			g.drawLine(50+i*39, 225, 50+i*39, 25);
+			g.drawLine(90+i*39, 255, 90+i*39, 55);
 			g.setColor(Color.BLACK);
 		}
 		
 		for(int i=1;i<=17;i++) {
-			g.drawLine(50, 225-i*12, 45, 225-i*12);
+			g.drawLine(90, 255-i*12, 85, 255-i*12);
 		}
 		
 		g.setColor(Color.BLUE);
 		for(int i=0;i<data[0].length;i++) {
 			try {
-				g.fillRect(51, 225-(i+1)*12-3,((int) Round.round(data[1][i]*porpotion,0)), 6);
+				g.fillRect(91, 255-(i+1)*12-3,((int) Round.round(data[1][i]*porpotion,0)), 6);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -57,9 +59,12 @@ public class HorizontalBars extends Canvas {
 		}
 		
 		g.setColor(Color.BLACK);
+		
+		g.drawString("[%]", 470, 285);
+		
 		double val=0;
 		for(int i=0;i<=10;i++) {
-			g.drawString(""+val,50+i*39-g.getFontMetrics().stringWidth(""+val)/2,242);
+			g.drawString(""+val,90+i*39-g.getFontMetrics().stringWidth(""+val)/2,272);
 			val+=max/10;
 		}
 		
@@ -73,7 +78,17 @@ public class HorizontalBars extends Canvas {
 		g.setFont(new Font(getFont().getFontName(),getFont().getStyle(),8));
 		for(int i=0;i<xlabels1.length;i++) {
 			
-			g.drawString(xlabels1[i], 40-g.getFontMetrics().stringWidth(xlabels1[i]), 225-(i+1)*12+g.getFontMetrics().getHeight()/4);
+			g.drawString(xlabels1[i], 80-g.getFontMetrics().stringWidth(xlabels1[i]), 255-(i+1)*12+g.getFontMetrics().getHeight()/4);
 		}
+		
+		g.setFont(new Font(regular.getFontName(),Font.BOLD,15));
+		
+		g.drawString("Axial difference between SIA and TIA", 250-g.getFontMetrics().stringWidth("Axial difference between SIA and TIA")/2, 20);
+		
+		g.setFont(regular);
+		Graphics2D g2d= (Graphics2D) g;
+		g2d.rotate(-Math.PI/2,30,150);
+		
+		g2d.drawString("Axial difference [°]", 30-g2d.getFontMetrics().stringWidth("Axial difference [°]")/2, 150);
 	}
 }
