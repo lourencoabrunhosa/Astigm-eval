@@ -2,7 +2,9 @@ package Graphics;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import data_structures.Round;
 
@@ -46,39 +48,41 @@ public class SiaVsTiaPlot extends Canvas {
 		
 		g.setColor(Color.BLACK);
 		
-		g.drawLine(40, 225, 40, 25);
-		g.drawLine(40, 225, 420, 225);
+		Font regular = g.getFont();
 		
-		int xstep=(420-40)/20;
-		int ystep=(225-25)/20;
+		g.drawLine(80, 255, 80, 55);
+		g.drawLine(80, 255, 460, 255);
 		
-		int x=40+xstep;
-		int y=225-ystep;
+		int xstep=(460-80)/20;
+		int ystep=(255-55)/20;
 		
-		g.drawString("0", 30, 240);
+		int x=80+xstep;
+		int y=255-ystep;
+		
+		g.drawString("0", 70, 270);
 		
 		double labelstep=max/10;
 		double label=labelstep;
 		for(int i=0;i<10;i++) {
 			
-			g.drawLine(x, 225, x, 227);
-			g.drawLine(40, y, 38, y);
+			g.drawLine(x, 255, x, 257);
+			g.drawLine(80, y, 78, y);
 			
 			
 			x+=xstep;
 			y-=ystep;
 			
-			g.drawLine(x, 225, x, 230);
-			g.drawLine(40, y, 35, y);
+			g.drawLine(x, 255, x, 260);
+			g.drawLine(80, y, 75, y);
 			
 			try {
-				g.drawString(""+Round.round(label,1), x-10, 245);
+				g.drawString(""+Round.round(label,1), x-g.getFontMetrics().stringWidth(""+Round.round(label,1))/2, 275);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				g.drawString(""+Round.round(label,1), 10, y+5);
+				g.drawString(""+Round.round(label,1), 75-g.getFontMetrics().stringWidth(""+Round.round(label,1)), y+5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -89,20 +93,24 @@ public class SiaVsTiaPlot extends Canvas {
 			label+=labelstep;
 		}
 		
+		g.drawString("TIA Magnitude [D]", 460-2*g.getFontMetrics().stringWidth("TIA Magnitude [D]")/3, 290);
+		
+		g.setFont(new Font("Tahoma",Font.BOLD,15));
+		g.drawString("SIA vs TIA", 225-g.getFontMetrics().stringWidth("SIA vs TIA")/2,20);
 		
 		g.setColor(Color.GREEN);
-		g.drawLine(40+1, 225-1, 420, 25);
+		g.drawLine(80+1, 255-1, 460, 55);
 		
 		g.setColor(Color.YELLOW);
 		try {
-			g.drawLine((int) Round.round(40+0.5*xporpotion, 0),225-1, 420,(int) Round.round(25+0.5*yporpotion,0));
+			g.drawLine((int) Round.round(80+0.5*xporpotion, 0),255-1, 460,(int) Round.round(55+0.5*yporpotion,0));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
-			g.drawLine(40+1,(int) Round.round(225-0.5*yporpotion,0), (int) Round.round(420-0.5*xporpotion, 0),25);
+			g.drawLine(80+1,(int) Round.round(255-0.5*yporpotion,0), (int) Round.round(460-0.5*xporpotion, 0),55);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,14 +118,14 @@ public class SiaVsTiaPlot extends Canvas {
 		
 		g.setColor(Color.RED);
 		try {
-			g.drawLine((int) Round.round(40+xporpotion, 0),225-1, 420,(int) Round.round(25+yporpotion,0));
+			g.drawLine((int) Round.round(80+xporpotion, 0),255-1, 460,(int) Round.round(55+yporpotion,0));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		try {
-			g.drawLine(40+1,(int) Round.round(225-yporpotion,0), (int) Round.round(420-xporpotion, 0),25);
+			g.drawLine(80+1,(int) Round.round(255-yporpotion,0), (int) Round.round(460-xporpotion, 0),55);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -126,11 +134,16 @@ public class SiaVsTiaPlot extends Canvas {
 		g.setColor(Color.DARK_GRAY);
 		for(int i=0;i<data[0].length;i++) {
 			try {
-				g.fillOval(40-2+(int) Round.round(data[0][i]*xporpotion, 0), 225-3-(int) Round.round(data[1][i]*yporpotion, 0), 5, 5);
+				g.fillOval(80-2+(int) Round.round(data[0][i]*xporpotion, 0), 255-3-(int) Round.round(data[1][i]*yporpotion, 0), 5, 5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		g.setFont(regular);
+		Graphics2D g2d= (Graphics2D) g;
+		g2d.rotate(-Math.PI/2,30,150);
+		
+		g2d.drawString("SIA Magnitude [D]", 30-g2d.getFontMetrics().stringWidth("SIA Magnitude [D]")/2, 150);
 	}
 }
