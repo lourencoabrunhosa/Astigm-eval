@@ -237,7 +237,7 @@ public class AstigmPlot extends Canvas {
 	}
 	
 	public void setBounds(int x,int y) {
-		super.setBounds(x,y,500,300);
+		super.setBounds(x,y,530,310);
 	}
 
 }

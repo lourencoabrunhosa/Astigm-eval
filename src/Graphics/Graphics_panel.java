@@ -33,10 +33,10 @@ public class Graphics_panel extends JPanel {
 		
 		
 		
-		ap.setBounds(503,1);
-		svt.setBounds(1,1,500,300);
-		vb.setBounds(1,303,500,300);
-		hb.setBounds(503,303,500,300);
+		ap.setBounds(533,1);
+		svt.setBounds(1,1,530,310);
+		vb.setBounds(1,313,530,310);
+		hb.setBounds(533,313,530,310);
 		
 		
 		add(ap);
