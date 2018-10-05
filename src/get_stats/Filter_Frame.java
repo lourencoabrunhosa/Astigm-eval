@@ -21,7 +21,7 @@ public class Filter_Frame extends JFrame {
 	 * Create the frame.
 	 */
 	public Filter_Frame(Stats_Intro parent) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(parent.parent.parent.getX()+200, parent.parent.parent.getY(), 400, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

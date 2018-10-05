@@ -2,6 +2,7 @@ package Graphics;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -92,39 +93,39 @@ public class AstigmPlot extends Canvas {
 		/**
 		 * Creates half polar axis grid
 		 */
-		g.drawArc(200, 200, 50, 50, 0, 180);
-		g.drawArc(175, 175, 100, 100, 0, 180);
-		g.drawArc(150, 150, 150, 150, 0, 180);
-		g.drawArc(125, 125, 200, 200, 0, 180);
-		g.drawArc(100, 100, 250, 250, 0, 180);
-		g.drawArc(75, 75, 300, 300, 0, 180);
+		g.drawArc(200, 230, 50, 50, 0, 180);
+		g.drawArc(175, 205, 100, 100, 0, 180);
+		g.drawArc(150, 180, 150, 150, 0, 180);
+		g.drawArc(125, 155, 200, 200, 0, 180);
+		g.drawArc(100, 130, 250, 250, 0, 180);
+		g.drawArc(75, 105, 300, 300, 0, 180);
 		
-		g.drawLine(225, 225, 400, 225);
-		g.drawLine(225, 225, 50, 225);
-		g.drawLine(225, 225, 225, 50);
+		g.drawLine(225, 255, 400, 255);
+		g.drawLine(225, 255, 50, 255);
+		g.drawLine(225, 255, 225, 80);
 		
-		g.drawLine(225, 225, 377, 138);
-		g.drawLine(225, 225, 313, 73);
-		g.drawLine(225, 225, 400, 225);
+		g.drawLine(225, 255, 377, 168);
+		g.drawLine(225, 255, 313, 103);
+		g.drawLine(225, 255, 400, 255);
 		
-		g.drawLine(225, 225, 73, 138);
-		g.drawLine(225, 225, 137, 73);
-		g.drawLine(225, 225, 50, 225);
+		g.drawLine(225, 255, 73, 168);
+		g.drawLine(225, 255, 137, 103);
+		g.drawLine(225, 255, 50, 255);
 		
-		g.drawLine(225, 225, 225, 230);
-		g.drawLine(200, 225, 200, 230);
-		g.drawLine(175, 225, 175, 230);
-		g.drawLine(150, 225, 150, 230);
-		g.drawLine(125, 225, 125, 230);
-		g.drawLine(100, 225, 100, 230);
-		g.drawLine(75, 225, 75, 230);
+		g.drawLine(225, 255, 225, 260);
+		g.drawLine(200, 255, 200, 260);
+		g.drawLine(175, 255, 175, 260);
+		g.drawLine(150, 255, 150, 260);
+		g.drawLine(125, 255, 125, 260);
+		g.drawLine(100, 255, 100, 260);
+		g.drawLine(75, 255, 75, 260);
 		
-		g.drawLine(250, 225, 250, 230);
-		g.drawLine(275, 225, 275, 230);
-		g.drawLine(300, 225, 300, 230);
-		g.drawLine(325, 225, 325, 230);
-		g.drawLine(350, 225, 350, 230);
-		g.drawLine(375, 225, 375, 230);
+		g.drawLine(250, 255, 250, 260);
+		g.drawLine(275, 255, 275, 260);
+		g.drawLine(300, 255, 300, 260);
+		g.drawLine(325, 255, 325, 260);
+		g.drawLine(350, 255, 350, 260);
+		g.drawLine(375, 255, 375, 260);
 		
 		
 		
@@ -132,22 +133,22 @@ public class AstigmPlot extends Canvas {
 		/**
 		 * Creates color "axis" 
 		 */
-		g.drawRect(425, 25, 30, 202);
+		g.drawRect(425, 55, 30, 202);
 		
-		int y=26;
+		int y=56;
 		for(double c=1;c>=0;c-=0.01) {
 			g.setColor(ColorMap.colorMap(c));
 			g.fillRect(426, y, 28, 2);
 			y+=2;
 		}
 		g.setColor(Color.BLACK);
-		y=25;
+		y=55;
 		for(int x=0;x<10;x++) {
 			g.drawLine(455, y, 460, y);
 			g.drawLine(455, y+10, 457, y+10);
 			y+=20;
 		}
-		g.drawLine(455, 227, 460, 227);
+		g.drawLine(455, 257, 460, 257);
 		
 		
 		
@@ -155,17 +156,17 @@ public class AstigmPlot extends Canvas {
 		 * Creates subtitles
 		 */
 		
-		g.drawString("0°",405,225);
-		g.drawString("30°",385,135);
-		g.drawString("60°",315,70);
-		g.drawString("90°",220,45);
-		g.drawString("120°",110,70);
-		g.drawString("150°",45,135);
-		g.drawString("180°",20,225);
+		g.drawString("0°",405,255);
+		g.drawString("30°",385,165);
+		g.drawString("60°",315,100);
+		g.drawString("90°",220,75);
+		g.drawString("120°",110,100);
+		g.drawString("150°",45,165);
+		g.drawString("180°",20,255);
 		
 		double step=(maxS-minS)/10;
 		double val=maxS;
-		y=28;
+		y=58;
 		for(int i=0;i<10;i++) {
 			try {
 				g.drawString(""+Round.round(val,1),465 , y);
@@ -177,7 +178,7 @@ public class AstigmPlot extends Canvas {
 			y+=20;
 		}
 		try {
-			g.drawString(""+Round.round(val,1),465 , 230);
+			g.drawString(""+Round.round(val,1),465 , 260);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -185,16 +186,16 @@ public class AstigmPlot extends Canvas {
 		
 		step=maxC/6;
 		val=maxC;
-		g.drawString("0", 221, 245);
+		g.drawString("0", 221, 275);
 		for(int x=1;x<7;x++) {
 			try {
-				g.drawString(""+Round.round((x*step),1), 218+(x*25), 245);
+				g.drawString(""+Round.round((x*step),1), 218+(x*25), 275);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				g.drawString(""+Round.round((x*step),1), 218-(x*25), 245);
+				g.drawString(""+Round.round((x*step),1), 218-(x*25), 275);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -210,7 +211,7 @@ public class AstigmPlot extends Canvas {
 		for(int i=0;i<data[0].length;i++) {
 			g.setColor(ColorMap.colorMap((data[0][i]-minS)/(maxS-minS)));
 			try {
-				g.fillOval((int) Round.round(data[1][i]*porpotion, 0)+223,223-((int) Round.round(data[2][i]*porpotion, 0)), 5, 5);
+				g.fillOval((int) Round.round(data[1][i]*porpotion, 0)+223,253-((int) Round.round(data[2][i]*porpotion, 0)), 5, 5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -219,11 +220,16 @@ public class AstigmPlot extends Canvas {
 		}
 		
 		g.setColor(Color.BLACK);
+		
+		g.drawString("Cyl [D]", 390-g.getFontMetrics().stringWidth("Cyl [D]")/2, 290);
+		g.drawString("Sphr [D]", 425-2*g.getFontMetrics().stringWidth("Sphr [D]")/3, 45);
+		g.setFont(new Font("Tahoma",Font.BOLD,15));
+		g.drawString("Difference observed at this surgery group",225-g.getFontMetrics().stringWidth("Difference observed at this surgery group")/2,20);
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.rotate(theta,225+µcx*porpotion,225-µcy*porpotion);
+		g2d.rotate(theta,225+µcx*porpotion,255-µcy*porpotion);
 		
 		try {
-			g2d.drawOval((int) Round.round(225+(µcx-Math.sqrt(l1*5.991))*porpotion,0),(int) Round.round(225-(µcy+Math.sqrt(l2*5.991))*porpotion,0),(int) Round.round(2*porpotion*Math.sqrt(l1*5.991),0),(int) Round.round(2*porpotion*Math.sqrt(l2*5.991),0));
+			g2d.drawOval((int) Round.round(225+(µcx-Math.sqrt(l1*5.991))*porpotion,0),(int) Round.round(255-(µcy+Math.sqrt(l2*5.991))*porpotion,0),(int) Round.round(2*porpotion*Math.sqrt(l1*5.991),0),(int) Round.round(2*porpotion*Math.sqrt(l2*5.991),0));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
