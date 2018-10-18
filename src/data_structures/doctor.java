@@ -20,7 +20,7 @@ public class doctor implements Serializable {
 		this.Surname=Surname;
 		accountcreated=LocalDateTime.now();
 		LastLogin=LocalDateTime.now();
-		databasename=FirstName+Surname+accountcreated.getNano();
+		databasename="."+FirstName+Surname+accountcreated.getNano();
 	}
 	
 	public void loged() {
