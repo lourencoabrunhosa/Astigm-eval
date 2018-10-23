@@ -16,7 +16,7 @@ public class Report {
 		today= Calendar.getInstance();
 		
 		try {
-			new PDF_writer().createPdf("/reports/"+doc.Surname+Calendar.DAY_OF_MONTH+Calendar.MONTH+Calendar.YEAR+Calendar.HOUR_OF_DAY);
+			PDF_writer.createPdf("/reports/"+doc.Surname+Calendar.DAY_OF_MONTH+Calendar.MONTH+Calendar.YEAR+Calendar.HOUR_OF_DAY);
 		} catch (DocumentException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

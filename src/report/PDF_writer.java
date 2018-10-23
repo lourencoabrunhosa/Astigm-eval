@@ -9,6 +9,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -17,7 +18,7 @@ public class PDF_writer {
 	public static final String DEST
 	= "report/teste.pdf";
 
-	public void createPdf(String dest)
+	public static void createPdf(String dest)
 			throws DocumentException, IOException {
 
 		
@@ -28,12 +29,16 @@ public class PDF_writer {
 		Document document = new Document();
 		PdfWriter.getInstance(document, new FileOutputStream(dest));
 		document.open();
+		
+		Paragraph paragraph1= new Paragraph("automatic report",title);
+		
+		
 
 		PdfPTable clientTable = new PdfPTable(6);
 		clientTable.setWidthPercentage(100.0f);
 
 		
-		
+		document.add(paragraph1);
 		document.add(clientTable);
 		
 		document.close();
@@ -41,5 +46,14 @@ public class PDF_writer {
 	    Desktop.getDesktop().open(new File(dest));
 		
 
+	}
+	
+	public static void main(String[] args) {
+		try {
+			createPdf("teste.pdf");
+		} catch (DocumentException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
